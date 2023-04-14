@@ -1,9 +1,13 @@
 import React from "react";
+import { Routes, Route } from 'react-router-dom'
+import Record from "./Records/Record";
 
 function Navbar() {
   return (
     <div>
-      <h1>hello</h1>
+      <Routes>
+        <Route exact path='/records' element={<Record />}/>
+      </Routes>
     </div>
   );
 }
