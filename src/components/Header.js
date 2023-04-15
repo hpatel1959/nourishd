@@ -1,9 +1,10 @@
 import React from "react";
+import headerImg from "../img/header.jpg";
 
 function Header() {
   return (
     <div>
-      <h1>This is header</h1>
+      <img src={headerImg} alt="header" />
     </div>
   );
 }

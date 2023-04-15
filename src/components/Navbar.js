@@ -3,22 +3,34 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="bg-warning">
-      <Link className="m-3" to="/">
-        Home
-      </Link>
-      <Link className="m-3" to="/records">
-        Records
-      </Link>
-      <Link className="m-3" to="/recipes">
-        Recipes
-      </Link>
-      <Link className="m-3" to="/favourites">
-        Favourites
-      </Link>
-      <Link className="m-3" to="/Forms">
-        Forms
-      </Link>
+    <nav className="navbar navbar-expand bg-warning flex-column">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/records">
+            Records
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/recipes">
+            Recipes
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/favourites">
+            Favourites
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/Forms">
+            Forms
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }

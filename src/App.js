@@ -8,6 +8,7 @@ import Records from "./components/Records/Records";
 import Recipes from "./components/Recipes/Recipes";
 import Favourites from "./components/Favourites/Favourites";
 import Forms from "./components/Forms/Forms";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Navbar />
         <p className="badge bg-warning">test</p>
         <Routes>
-          <Route exact path="/" />
+          <Route exact path="/" element={<Home />} />
           <Route path="/records" element={<Records />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/favorites" element={<Favourites />} />
