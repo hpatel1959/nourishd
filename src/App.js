@@ -15,7 +15,6 @@ function App() {
   return (
       <div className="App">
         <Navbar />
-        <p className="badge bg-warning">test</p>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/records" element={<Records />} />
