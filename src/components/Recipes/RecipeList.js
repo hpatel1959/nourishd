@@ -1,10 +1,19 @@
 import React from "react";
+import RecipeListItem from "./RecipeListItem";
 
-function RecipeList() {
+function RecipeList(props) {
+  const RecipeListItemArr = props.recipes.map((recipe) => (
+    <RecipeListItem
+      key={recipe.recipe.label}
+      title={recipe.recipe.label}
+      image={recipe.recipe.image}
+      ingredients={recipe.recipe.ingredients}
+      calories={Math.floor(recipe.recipe.calories)}
+    />
+  ));
+
   return (
-    <div>
-      <h1>this is recipe</h1>
-    </div>
+    <div className="row row-cols-1 row-cols-md-3 g-4">{RecipeListItemArr}</div>
   );
 }
 
