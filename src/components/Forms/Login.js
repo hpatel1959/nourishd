@@ -27,7 +27,7 @@ function Login() {
     };
 
     try {
-      const response = await axios.post(url, requestData);
+      const response = await axios.post(url, requestData, { withCredentials: true });
 
       if (response.data.success) {
         navigate("/");
