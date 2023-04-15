@@ -1,5 +1,5 @@
 //REACT-ROUTER-DOM
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
@@ -13,7 +13,6 @@ import Home from "./components/Home";
 
 function App() {
   return (
-    <Router>
       <div className="App">
         <Navbar />
         <p className="badge bg-warning">test</p>
@@ -26,7 +25,6 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
-    </Router>
   );
 }
 
