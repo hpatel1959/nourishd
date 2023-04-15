@@ -41,7 +41,7 @@ function Recipes() {
           Search
         </button>
       </form>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div>
         <RecipeList recipes={recipes} />
       </div>
     </div>
