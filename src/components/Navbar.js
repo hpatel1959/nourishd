@@ -1,8 +1,10 @@
 import axios from "axios";
-import React from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const [logInStatus, setLogInStatus] = useState(false);
+
   const navigate = useNavigate();
   const logOut = async (e) => {
     e.preventDefault();
@@ -21,11 +23,23 @@ function Navbar() {
     }
   };
 
-  const sessionCookie = document.cookie.replace(
-    /(?:(?:^|.*;\s*)_nutrition_app_api_session\s*\=\s*([^;]*).*$)|^.*$/,
-    "$1"
-  );
-  const isLoggedIn = sessionCookie !== null;
+  const isLoggedIn = async () => {
+    const url = "http://localhost:4000/status";
+
+    const response = await axios.get(url, { withCredentials: true });
+    try {
+      if (response.data.user_cookie) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error("Error during login: " + error.message);
+    }
+  };
+
+  // const sessionCookie = document.cookie
+  // const isLoggedIn = sessionCookie !== null;
 
   return (
     <nav className="navbar navbar-expand bg-warning flex-column">
@@ -56,18 +70,14 @@ function Navbar() {
           </NavLink>
         </li>
         <li className="nav-item">
-          {isLoggedIn ? (
-            <li className="nav-item">
-              <button className="btn btn-link nav-link" onClick={logOut}>
-                Logout
-              </button>
-            </li>
+          {logInStatus ? (
+            <button className="btn btn-link nav-link" onClick={logOut}>
+              Logout
+            </button>
           ) : (
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
+            <NavLink className="nav-link" to="/login">
+              Login
+            </NavLink>
           )}
         </li>
       </ul>
