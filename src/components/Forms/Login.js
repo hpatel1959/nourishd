@@ -1,12 +1,11 @@
 import React from "react";
-import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
 function Login(props) {
 
-  const { setLogInStatus } = props;
+  const { setLogInStatus, email, setEmail, password, setPassword } = props;
   const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
@@ -42,9 +41,6 @@ function Login(props) {
     };
 
   }
-
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
 
   return (
     <>
