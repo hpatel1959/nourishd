@@ -1,6 +1,6 @@
 //REACT-ROUTER-DOM
 import { Route, Routes } from "react-router-dom";
-import { useState } from 'react';
+import { useState } from "react";
 
 import "./App.css";
 
@@ -13,10 +13,9 @@ import Login from "./components/Forms/Login";
 import Home from "./components/Home";
 
 function App() {
-
   const [logInStatus, setLogInStatus] = useState(false);
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
       <div className="App">
