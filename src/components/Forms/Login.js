@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-function Login() {
+function Login(props) {
+
+  const { setLogInStatus } = props;
   const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
@@ -30,6 +32,7 @@ function Login() {
       const response = await axios.post(url, requestData, { withCredentials: true });
 
       if (response.data.success) {
+        setLogInStatus(true)
         navigate("/");
       } else {
         console.log("Login failed: " + response.data.message);

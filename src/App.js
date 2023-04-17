@@ -1,5 +1,6 @@
 //REACT-ROUTER-DOM
 import { Route, Routes } from "react-router-dom";
+import { useState } from 'react';
 
 import "./App.css";
 
@@ -12,16 +13,19 @@ import Login from "./components/Forms/Login";
 import Home from "./components/Home";
 
 function App() {
+
+  const [logInStatus, setLogInStatus] = useState(false);
+
   return (
       <div className="App">
-        <Navbar />
+        <Navbar logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/records" element={<Records />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/favorites" element={<Favourites />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLogInStatus={setLogInStatus}/>} />
         </Routes>
       </div>
   );

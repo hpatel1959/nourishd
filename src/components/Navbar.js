@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-function Navbar() {
-  const [logInStatus, setLogInStatus] = useState(false);
+function Navbar(props) {
+  const { logInStatus, setLogInStatus } = props;
 
   const navigate = useNavigate();
   const logOut = async (e) => {
@@ -14,7 +13,8 @@ function Navbar() {
     const response = await axios.get(url, { withCredentials: true });
     try {
       if (response.data.success) {
-        navigate("/");
+        setLogInStatus(false)
+        navigate("/login");
       } else {
         console.log("Login failed: " + response.data.message);
       }
@@ -22,24 +22,6 @@ function Navbar() {
       console.error("Error during login: " + error.message);
     }
   };
-
-  const isLoggedIn = async () => {
-    const url = "http://localhost:4000/status";
-
-    const response = await axios.get(url, { withCredentials: true });
-    try {
-      if (response.data.user_cookie) {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (error) {
-      console.error("Error during login: " + error.message);
-    }
-  };
-
-  // const sessionCookie = document.cookie
-  // const isLoggedIn = sessionCookie !== null;
 
   return (
     <nav className="navbar navbar-expand bg-warning flex-column">
