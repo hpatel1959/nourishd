@@ -9,6 +9,7 @@ function Signup(props) {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [age, setAge] = useState('');
+  const [sex, setSex] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const navigate = useNavigate();
 
@@ -40,6 +41,10 @@ function Signup(props) {
     setPasswordConfirmation(event.target.value);
   }
 
+  const handleSexChange = (event) => {
+    setSex(event.target.value);
+  }
+
   const handleSubmit = async (event) => {
 
     event.preventDefault();
@@ -53,7 +58,8 @@ function Signup(props) {
         password,
         height,
         weight,
-        age
+        age,
+        sex
       }
     };
 
@@ -86,6 +92,12 @@ function Signup(props) {
       <input type="number" name="height" placeholder="Height" onChange={handleHeightChange}></input>
       <input type="number" name="weight" placeholder="Weight" onChange={handleWeightChange}></input>
       <input type="number" name="age" placeholder="Age" onChange={handleAgeChange}></input>
+      <div>
+        <input type="radio" id="male" name="sex" value="male" onChange={handleSexChange}></input>
+        <label htmlFor="male">Male</label>
+        <input type="radio" id="female" name="sex" value="female" onChange={handleSexChange}></input>
+        <label htmlFor="female">Female</label>
+      </div>
       <button type="submit">Sign up</button>
       </form>
     </div>

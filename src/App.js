@@ -26,7 +26,7 @@ function App() {
           <Route path="/records" element={<Records />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/favorites" element={<Favourites />} />
-          <Route path="/signup" element={<SignUp setLogInStatus={setLogInStatus} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>}/>} />
+          <Route path="/signup" element={<SignUp setLogInStatus={setLogInStatus} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
           <Route path="/login" element={<Login setLogInStatus={setLogInStatus} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
         </Routes>
       </div>
