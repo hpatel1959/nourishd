@@ -17,6 +17,7 @@ export function getSuggestedNutrientIntake(userParams) {
   const { sex } = userParams;
   const result = {};
   const calories = calculateSuggestedCalories(userParams);
+  result["calories"] = Math.floor(calories);
   result["fat"] = Math.floor((calories * 0.2) / 9);
   result["carbs"] = Math.floor((calories * 0.4) / 4);
   result["protein"] = Math.floor((calories * 0.3) / 4);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UserInfo from "./UserInfo";
+import NutrientList from "./NutrientList";
 
 function Records() {
   const [userData, setUserData] = useState({});
@@ -24,17 +25,10 @@ function Records() {
   return (
     <div>
       <h1>Records</h1>
+      <h3>User Details</h3>
       <UserInfo userData={userData} />
-      {/* {userData ? (
-        <>
-          <p>{userData.username}</p>
-          <p>{userData.age} years old</p>
-          <p>{userData.height} cm</p>
-          <p>{userData.weight} kg</p>
-        </>
-      ) : (
-        <p>Please log in</p>
-      )} */}
+      <h3>Daily Intakes</h3>
+      <NutrientList userData={userData} />
     </div>
   );
 }
