@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import UserInfo from "./UserInfo";
 
 function Records() {
   const [userData, setUserData] = useState({});
@@ -23,7 +24,8 @@ function Records() {
   return (
     <div>
       <h1>Records</h1>
-      {userData ? (
+      <UserInfo userData={userData} />
+      {/* {userData ? (
         <>
           <p>{userData.username}</p>
           <p>{userData.age} years old</p>
@@ -32,7 +34,7 @@ function Records() {
         </>
       ) : (
         <p>Please log in</p>
-      )}
+      )} */}
     </div>
   );
 }
