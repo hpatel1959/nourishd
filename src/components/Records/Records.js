@@ -28,7 +28,7 @@ function Records() {
           <p>{userData.username}</p>
           <p>{userData.age} years old</p>
           <p>{userData.height} cm</p>
-          <p>{userData.wieght} kg</p>
+          <p>{userData.weight} kg</p>
         </>
       ) : (
         <p>Please log in</p>
