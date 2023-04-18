@@ -2,6 +2,7 @@ import React from "react";
 
 function NutrientListItem(props) {
   const { data } = props;
+
   const lable = Object.keys(data);
   const valObj = Object.values(data);
   const currentVal = valObj[0].current;
