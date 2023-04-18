@@ -23,8 +23,6 @@ function RecipeListItem(props) {
       },
     };
 
-    console.log(requestData.day);
-
     try {
       const response = await axios.post(url, requestData, {
         withCredentials: true,
