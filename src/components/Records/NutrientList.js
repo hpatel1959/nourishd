@@ -46,7 +46,7 @@ function NutrientList(props) {
       // console.log(response.data.day);
       setCalories(response.data.day.calories);
       setFat(response.data.day.fat);
-      setCarbohydrates(response.data.day.carbohydrate);
+      setCarbohydrates(response.data.day.carbohydrates);
       setSodium(response.data.day.sodium);
       setSugar(response.data.day.sugar);
       setProtein(response.data.day.protein);
