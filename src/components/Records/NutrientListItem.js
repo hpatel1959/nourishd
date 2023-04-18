@@ -28,9 +28,19 @@ function NutrientListItem(props) {
   const remaining = Math.floor(suggestedVal - currentVal);
 
   return (
-    <div>
+    <div className="card mb-2">
       <p>
-        {lable}({unit}) : {currentVal} / {suggestedVal} | Remaining {remaining}
+        <span>
+          {lable}({unit}) :
+        </span>
+        <span>
+          {currentVal} / {suggestedVal} |
+        </span>
+        {remaining > 0 ? (
+          <span> Remaining {remaining}</span>
+        ) : (
+          <span className="text-danger"> Overdose {remaining}</span>
+        )}
       </p>
     </div>
   );
