@@ -48,16 +48,20 @@ function NutrientList(props) {
         setCalories(response.data.day.calories);
         setFat(response.data.day.fat);
         setCarbohydrates(response.data.day.carbohydrates);
-        setSodium(response.data.day.sodium * 1000);
-        setSugar(response.data.day.sugar);
-        setProtein(response.data.day.protein);
-        setFiber(response.data.day.fiber);
-        setPotassium(response.data.day.potassium * 1000);
-        setVitaminA(response.data.day.vitamin_a * 1000000);
-        setVitaminC(response.data.day.vitamin_c * 1000);
-        setCalcium(response.data.day.calcium * 1000);
-        setIron(response.data.day.iron * 1000);
-        setCholesterol(response.data.day.cholesterol * 1000);
+        setSodium(parseFloat(response.data.day.sodium * 1000).toFixed(5));
+        setSugar(parseFloat(response.data.day.sugar).toFixed(5));
+        setProtein(parseFloat(response.data.day.protein).toFixed(5));
+        setFiber(parseFloat(response.data.day.fiber).toFixed(5));
+        setPotassium(parseFloat(response.data.day.potassium * 1000).toFixed(5));
+        setVitaminA(
+          parseFloat(response.data.day.vitamin_a * 1000000).toFixed(5)
+        );
+        setVitaminC(parseFloat(response.data.day.vitamin_c * 1000).toFixed(5));
+        setCalcium(parseFloat(response.data.day.calcium * 1000).toFixed(5));
+        setIron(parseFloat(response.data.day.iron * 1000).toFixed(5));
+        setCholesterol(
+          parseFloat(response.data.day.cholesterol * 1000).toFixed(5)
+        );
       }
     } catch (error) {
       console.error("Error: " + error.message);
