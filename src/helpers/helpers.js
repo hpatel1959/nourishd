@@ -19,7 +19,7 @@ export function getSuggestedNutrientIntake(userParams) {
   const calories = calculateSuggestedCalories(userParams);
   result["calories"] = Math.floor(calories);
   result["fat"] = Math.floor((calories * 0.2) / 9);
-  result["carbs"] = Math.floor((calories * 0.4) / 4);
+  result["carbohydrate"] = Math.floor((calories * 0.4) / 4);
   result["protein"] = Math.floor((calories * 0.3) / 4);
   result["sugar"] = Math.floor((calories * 0.1) / 4);
   result["sodium"] = 2.3;
