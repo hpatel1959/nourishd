@@ -18,17 +18,39 @@ function App() {
   const [password, setPassword] = useState("");
 
   return (
-      <div className="App">
-        <Navbar logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/records" element={<Records />} />
-          <Route path="/recipes" element={<Recipes />} />
-          <Route path="/favorites" element={<Favourites />} />
-          <Route path="/signup" element={<SignUp setLogInStatus={setLogInStatus} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
-          <Route path="/login" element={<Login setLogInStatus={setLogInStatus} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
-        </Routes>
-      </div>
+    <div className="App">
+      <Navbar logInStatus={logInStatus} setLogInStatus={setLogInStatus} />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/records" element={<Records />} />
+        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/favorites" element={<Favourites />} />
+        <Route
+          path="/signup"
+          element={
+            <SignUp
+              setLogInStatus={setLogInStatus}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Login
+              setLogInStatus={setLogInStatus}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+            />
+          }
+        />
+      </Routes>
+    </div>
   );
 }
 

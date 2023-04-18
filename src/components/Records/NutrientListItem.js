@@ -5,7 +5,7 @@ function NutrientListItem(props) {
   const lable = Object.keys(data)[0];
   const valArr = Object.values(data);
 
-  const currentVal = valArr[0].current;
+  const currentVal = Math.floor(valArr[0].current);
   let suggestedVal = valArr[0].suggested;
 
   let unit = "g";
