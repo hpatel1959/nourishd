@@ -29,14 +29,14 @@ export function getSuggestedNutrientIntake(userParams) {
   if (sex === "male") {
     result["fiber"] = 38;
     result["potassium"] = 3.4;
-    result["vitaminA"] = 0.0009;
-    result["vitaminC"] = 0.00009;
+    result["vitamin_a"] = 0.0009;
+    result["vitamin_c"] = 0.00009;
     result["iron"] = 0.008;
   } else if (sex === "female") {
     result["fiber"] = 25;
     result["potassium"] = 2.6;
-    result["vitaminA"] = 0.0007;
-    result["vitaminC"] = 0.000075;
+    result["vitamin_a"] = 0.0007;
+    result["vitamin_c"] = 0.000075;
     result["iron"] = 0.018;
   }
 

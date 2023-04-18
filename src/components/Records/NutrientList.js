@@ -8,8 +8,8 @@ function NutrientList(props) {
   const intakes = getSuggestedNutrientIntake(userData);
   const arrOfIntakes = Object.entries(intakes);
 
-  const arrOfNutrientListItems = arrOfIntakes.map((item) => {
-    return <NutrientListItem item={item} />;
+  const arrOfNutrientListItems = arrOfIntakes.map(([label, num]) => {
+    return <NutrientListItem lable={label} num={num} />;
   });
 
   return <div>{arrOfNutrientListItems}</div>;

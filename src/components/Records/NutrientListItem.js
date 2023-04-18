@@ -1,10 +1,12 @@
 import React from "react";
 
 function NutrientListItem(props) {
-  const { item } = props;
+  const { lable, num } = props;
   return (
     <div>
-      <p>{item}</p>
+      <p>
+        {lable} : {num}
+      </p>
     </div>
   );
 }
