@@ -45,14 +45,14 @@ function NutrientList(props) {
       const response = await axios.get(url, { withCredentials: true });
       // console.log(response.data.day);
       if (response.data.day) {
-        setCalories(parseFloat(response.data.day.calories.toFixed(5)));
+        setCalories(response.data.day.calories);
         setFat(response.data.day.fat);
         setCarbohydrates(response.data.day.carbohydrates);
         setSodium(response.data.day.sodium * 1000);
         setSugar(response.data.day.sugar);
         setProtein(response.data.day.protein);
         setFiber(response.data.day.fiber);
-        setPotassium(parseFloat(response.data.day.potassium.toFixed(5) * 1000));
+        setPotassium(response.data.day.potassium);
         setVitaminA(response.data.day.vitamin_a * 1000000);
         setVitaminC(response.data.day.vitamin_c * 1000);
         setCalcium(response.data.day.calcium * 1000);
