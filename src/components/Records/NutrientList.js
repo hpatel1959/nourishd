@@ -6,19 +6,19 @@ import axios from "axios";
 function NutrientList(props) {
   const { userData } = props;
 
-  const [calories, setCalories] = useState("");
-  const [fat, setFat] = useState("");
-  const [carbohydrates, setCarbohydrates] = useState("");
-  const [sodium, setSodium] = useState("");
-  const [sugar, setSugar] = useState("");
-  const [protein, setProtein] = useState("");
-  const [fiber, setFiber] = useState("");
-  const [potassium, setPotassium] = useState("");
-  const [vitaminA, setVitaminA] = useState("");
-  const [vitaminC, setVitaminC] = useState("");
-  const [calcium, setCalcium] = useState("");
-  const [iron, setIron] = useState("");
-  const [cholesterol, setCholesterol] = useState("");
+  const [calories, setCalories] = useState(0);
+  const [fat, setFat] = useState(0);
+  const [carbohydrates, setCarbohydrates] = useState(0);
+  const [sodium, setSodium] = useState(0);
+  const [sugar, setSugar] = useState(0);
+  const [protein, setProtein] = useState(0);
+  const [fiber, setFiber] = useState(0);
+  const [potassium, setPotassium] = useState(0);
+  const [vitaminA, setVitaminA] = useState(0);
+  const [vitaminC, setVitaminC] = useState(0);
+  const [calcium, setCalcium] = useState(0);
+  const [iron, setIron] = useState(0);
+  const [cholesterol, setCholesterol] = useState(0);
 
   // ----------------------------------------------------
   const dayData = {
@@ -44,19 +44,21 @@ function NutrientList(props) {
     try {
       const response = await axios.get(url, { withCredentials: true });
       // console.log(response.data.day);
-      setCalories(response.data.day.calories);
-      setFat(response.data.day.fat);
-      setCarbohydrates(response.data.day.carbohydrates);
-      setSodium(response.data.day.sodium);
-      setSugar(response.data.day.sugar);
-      setProtein(response.data.day.protein);
-      setFiber(response.data.day.fiber);
-      setPotassium(response.data.day.potassium);
-      setVitaminA(response.data.day.vitamin_a);
-      setVitaminC(response.data.day.vitamin_c);
-      setCalcium(response.data.day.calcium);
-      setIron(response.data.day.iron);
-      setCholesterol(response.data.day.cholesterol);
+      if (response.data.day) {
+        setCalories(response.data.day.calories);
+        setFat(response.data.day.fat);
+        setCarbohydrates(response.data.day.carbohydrates);
+        setSodium(response.data.day.sodium * 1000);
+        setSugar(response.data.day.sugar);
+        setProtein(response.data.day.protein);
+        setFiber(response.data.day.fiber);
+        setPotassium(response.data.day.potassium * 1000);
+        setVitaminA(response.data.day.vitamin_a * 1000000);
+        setVitaminC(response.data.day.vitamin_c * 1000);
+        setCalcium(response.data.day.calcium * 1000);
+        setIron(response.data.day.iron * 1000);
+        setCholesterol(response.data.day.cholesterol * 1000);
+      }
     } catch (error) {
       console.error("Error: " + error.message);
     }
