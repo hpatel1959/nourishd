@@ -26,7 +26,7 @@ function NutrientListItem(props) {
   }
 
   const remaining = Math.floor(suggestedVal - currentVal);
-
+  const percent = (currentVal / suggestedVal) * 100;
   return (
     <div className="card mb-2">
       <p>
@@ -41,6 +41,16 @@ function NutrientListItem(props) {
         ) : (
           <span className="text-danger"> Overdose {remaining}</span>
         )}
+        <div
+          className="progress mx-4"
+          role="progressbar"
+          aria-label="Basic example"
+          aria-valuenow={percent}
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div className="progress-bar" style={{ width: `${percent}%` }}></div>
+        </div>
       </p>
     </div>
   );
