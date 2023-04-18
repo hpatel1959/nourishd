@@ -30,8 +30,8 @@ function NutrientList(props) {
     protein,
     fiber,
     potassium,
-    vitamin_a: vitaminA,
-    vitamin_c: vitaminC,
+    vitaminA,
+    vitaminC,
     calcium,
     iron,
     cholesterol,
@@ -45,23 +45,19 @@ function NutrientList(props) {
       const response = await axios.get(url, { withCredentials: true });
       // console.log(response.data.day);
       if (response.data.day) {
-        setCalories(response.data.day.calories);
+        setCalories(parseFloat(response.data.day.calories.toFixed(5)));
         setFat(response.data.day.fat);
         setCarbohydrates(response.data.day.carbohydrates);
-        setSodium(parseFloat(response.data.day.sodium * 1000).toFixed(5));
-        setSugar(parseFloat(response.data.day.sugar).toFixed(5));
-        setProtein(parseFloat(response.data.day.protein).toFixed(5));
-        setFiber(parseFloat(response.data.day.fiber).toFixed(5));
-        setPotassium(parseFloat(response.data.day.potassium * 1000).toFixed(5));
-        setVitaminA(
-          parseFloat(response.data.day.vitamin_a * 1000000).toFixed(5)
-        );
-        setVitaminC(parseFloat(response.data.day.vitamin_c * 1000).toFixed(5));
-        setCalcium(parseFloat(response.data.day.calcium * 1000).toFixed(5));
-        setIron(parseFloat(response.data.day.iron * 1000).toFixed(5));
-        setCholesterol(
-          parseFloat(response.data.day.cholesterol * 1000).toFixed(5)
-        );
+        setSodium(response.data.day.sodium * 1000);
+        setSugar(response.data.day.sugar);
+        setProtein(response.data.day.protein);
+        setFiber(response.data.day.fiber);
+        setPotassium(parseFloat(response.data.day.potassium.toFixed(5) * 1000));
+        setVitaminA(response.data.day.vitamin_a * 1000000);
+        setVitaminC(response.data.day.vitamin_c * 1000);
+        setCalcium(response.data.day.calcium * 1000);
+        setIron(response.data.day.iron * 1000);
+        setCholesterol(response.data.day.cholesterol * 1000);
       }
     } catch (error) {
       console.error("Error: " + error.message);
