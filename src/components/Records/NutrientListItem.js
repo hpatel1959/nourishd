@@ -2,17 +2,35 @@ import React from "react";
 
 function NutrientListItem(props) {
   const { data } = props;
+  const lable = Object.keys(data)[0];
+  const valArr = Object.values(data);
 
-  const lable = Object.keys(data);
-  const valObj = Object.values(data);
-  const currentVal = valObj[0].current;
-  const suggestedVal = valObj[0].suggested;
+  const currentVal = valArr[0].current;
+  let suggestedVal = valArr[0].suggested;
+
+  let unit = "g";
+
+  if (
+    lable === "vitamin_c" ||
+    lable === "potassium" ||
+    lable === "calcium" ||
+    lable === "iron" ||
+    lable === "sodium" ||
+    lable === "cholesterol"
+  ) {
+    unit = "mg";
+    suggestedVal *= 1000;
+  } else if (lable === "vitamin_a") {
+    unit = "mcg";
+    suggestedVal *= 1000000;
+  }
+
   const remaining = Math.floor(suggestedVal - currentVal);
-  console.log(valObj);
+
   return (
     <div>
       <p>
-        {lable} : {currentVal} / {suggestedVal} | Remaining {remaining}
+        {lable}({unit}) : {currentVal} / {suggestedVal} | Remaining {remaining}
       </p>
     </div>
   );
