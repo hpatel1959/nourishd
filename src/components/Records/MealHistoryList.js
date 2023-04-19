@@ -4,7 +4,7 @@ import MealHistoryListItem from "./MealHistoryListItem";
 
 function MealHistoryList() {
   const [mealsArr, setMealsArr] = useState([]);
-
+  // ------------------------------------------------
   const removeMealFromTracker = async (name, id) => {
     const queryName = name.split(" ").join("-");
     console.log(queryName, "🐶", id);
@@ -81,8 +81,10 @@ function MealHistoryList() {
     } catch (error) {
       console.error("Error during login: " + error.message);
     }
-  };
 
+    await fetchDayData();
+  };
+  // ------------------------------------------------
   const fetchDayData = async () => {
     const url = "http://localhost:4000/dayInfo";
 
