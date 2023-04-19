@@ -1,6 +1,7 @@
 //REACT-ROUTER-DOM
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import "./App.css";
 
@@ -13,9 +14,30 @@ import Login from "./components/Forms/Login";
 import Home from "./components/Home";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(false);
+  const [logInStatus, setLogInStatus] = useState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const checkIfLoggedIn = async () => {
+    const url = "http://localhost:4000/userInfo";
+
+    try {
+      const response = await axios.get(url, { withCredentials: true });
+
+      if (response.data.success) {
+        console.log("went through");
+        setLogInStatus(true);
+      } else {
+        setLogInStatus(false);
+      }
+    } catch (error) {
+      console.error("Error during login: " + error.message);
+    }
+  };
+
+  useEffect(() => {
+    checkIfLoggedIn();
+  }, []);
 
   return (
     <div className="App">
