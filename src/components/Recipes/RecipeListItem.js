@@ -26,7 +26,7 @@ function RecipeListItem(props) {
         calcium: props.calciumPerServing,
         iron: props.ironPerServing,
         cholesterol: props.cholesterolPerServing,
-        history: { [props.label]: extractedId },
+        history: { [props.title]: extractedId },
       },
     };
 
@@ -34,6 +34,8 @@ function RecipeListItem(props) {
       const response = await axios.post(url, requestData, {
         withCredentials: true,
       });
+
+      console.log(requestData);
 
       if (response.data.success) {
         console.log("Success");

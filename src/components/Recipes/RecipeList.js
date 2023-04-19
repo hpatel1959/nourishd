@@ -6,6 +6,7 @@ function RecipeList(props) {
     <RecipeListItem
       key={recipe.recipe.label}
       title={recipe.recipe.label}
+      uri={recipe.recipe.uri}
       image={recipe.recipe.image}
       ingredients={recipe.recipe.ingredients}
       calories={Math.floor(recipe.recipe.calories)}
