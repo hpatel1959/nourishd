@@ -11,7 +11,7 @@ function MealHistoryListItem(props) {
         {mealName}
 
         <i
-          className="fa-regular fa-trash-can text-danger"
+          className="fa-regular fa-trash-can text-danger h5"
           role="button"
           onClick={() => removeMealFromTracker(mealName, mealId)}
         ></i>

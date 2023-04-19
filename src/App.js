@@ -24,8 +24,8 @@ function App() {
     try {
       const response = await axios.get(url, { withCredentials: true });
 
-      if (response.data.success) {
-        console.log("went through");
+      if (response.data.user) {
+        console.log(response.data.user);
         setLogInStatus(true);
       } else {
         setLogInStatus(false);
