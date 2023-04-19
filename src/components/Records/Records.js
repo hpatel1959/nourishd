@@ -39,10 +39,7 @@ function Records() {
           <h3>Daily Intakes</h3>
           <NutrientList userData={userData} updateKey={updateKey} />
           <button onClick={() => navigate("/recipes")}>Add Meal</button>
-          <MealHistoryList
-            updateKey={updateKey}
-            triggerUpdate={triggerUpdate}
-          />
+          <MealHistoryList triggerUpdate={triggerUpdate} />
         </>
       ) : (
         <p>Please log in</p>

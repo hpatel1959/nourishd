@@ -4,7 +4,7 @@ import MealHistoryListItem from "./MealHistoryListItem";
 
 function MealHistoryList(props) {
   const [mealsArr, setMealsArr] = useState([]);
-  const { updateKey, triggerUpdate } = props;
+  const { triggerUpdate } = props;
   // ------------------------------------------------
   const removeMealFromTracker = async (name, id) => {
     const queryName = name.split(" ").join("-");
