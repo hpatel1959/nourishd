@@ -63,6 +63,24 @@ function MealHistoryList() {
     };
 
     console.log("🚨", requestDataTwo);
+
+    const urlTwo = "http://localhost:4000/updateDayInfo";
+
+    try {
+      const responseTwo = await axios.post(urlTwo, requestDataTwo, {
+        withCredentials: true,
+      });
+
+      console.log(responseTwo);
+
+      if (responseTwo.data.success) {
+        console.log("Success");
+      } else {
+        console.log("Failed to remove");
+      }
+    } catch (error) {
+      console.error("Error during login: " + error.message);
+    }
   };
 
   const fetchDayData = async () => {
