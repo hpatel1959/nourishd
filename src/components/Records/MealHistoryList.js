@@ -7,20 +7,62 @@ function MealHistoryList() {
 
   const removeMealFromTracker = async (name, id) => {
     const queryName = name.split(" ").join("-");
+    console.log(queryName, "🐶", id);
     const url = `http://localhost:4000/recipes/${queryName}`;
     const requestData = {
       recipe_id: id,
     };
 
-    const response = await axios.get(url, requestData, {
+    const response = await axios.get(url, {
+      params: requestData,
       withCredentials: true,
     });
 
-    if (response.data.success) {
-      console.log(response.data);
+    if (response.data) {
+      console.log("🍓", response.data, "🍓");
     } else {
       console.log("Login failed: " + response.data.message);
     }
+
+    const {
+      FAT,
+      CHOCDF,
+      NA,
+      SUGAR,
+      PROCNT,
+      FIBTG,
+      K,
+      VITA_RAE,
+      VITC,
+      CA,
+      FE,
+      CHOLE,
+    } = response.data.totalNutrients;
+    const { calories } = response.data;
+    const serving = response.data.yield;
+
+    const requestDataTwo = {
+      day: {
+        calories: -(Math.floor((calories / serving) * 100) / 100),
+        fat: -(Math.floor((FAT.quantity / serving) * 100) / 100),
+        carbohydrates: -(Math.floor((CHOCDF.quantity / serving) * 100) / 100),
+        sodium: -parseFloat(NA.quantity / serving / 1000).toFixed(5),
+        sugar: -(Math.floor((SUGAR.quantity / serving) * 100) / 100),
+        protein: -(Math.floor((PROCNT.quantity / serving) * 100) / 100),
+        fiber: -(Math.floor((FIBTG.quantity / serving) * 100) / 100),
+        potassium: -parseFloat(K.quantity / serving / 1000).toFixed(5),
+        vitamin_a: -parseFloat(VITA_RAE.quantity / serving / 1000000).toFixed(
+          5
+        ),
+        vitamin_c: -parseFloat(VITC.quantity / serving / 1000).toFixed(5),
+        calcium: -parseFloat(CA.quantity / serving / 1000).toFixed(5),
+        iron: -parseFloat(FE.quantity / serving / 1000).toFixed(5),
+        cholesterol: -parseFloat(CHOLE.quantity / serving / 1000).toFixed(5),
+        history: { [name]: id },
+      },
+    };
+
+    console.log("🚨", requestDataTwo);
   };
 
   const fetchDayData = async () => {
