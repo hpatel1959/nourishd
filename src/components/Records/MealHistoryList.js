@@ -8,7 +8,6 @@ function MealHistoryList(props) {
   // ------------------------------------------------
   const removeMealFromTracker = async (name, id) => {
     const queryName = name.split(" ").join("-");
-    console.log(queryName, "🐶", id);
     const url = `http://localhost:4000/recipes/${queryName}`;
     const requestData = {
       recipe_id: id,
@@ -20,7 +19,6 @@ function MealHistoryList(props) {
     });
 
     if (response.data) {
-      console.log("🍓", response.data, "🍓");
     } else {
       console.log("Login failed: " + response.data.message);
     }
@@ -63,16 +61,12 @@ function MealHistoryList(props) {
       },
     };
 
-    console.log("🚨", requestDataTwo);
-
     const urlTwo = "http://localhost:4000/updateDayInfo";
 
     try {
       const responseTwo = await axios.post(urlTwo, requestDataTwo, {
         withCredentials: true,
       });
-
-      console.log(responseTwo);
 
       if (responseTwo.data.success) {
         console.log("Success");

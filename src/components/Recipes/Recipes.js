@@ -9,14 +9,15 @@ function Recipes() {
   const [query, setQuery] = useState();
 
   useEffect(() => {
+    const getRecipes = async () => {
+      const response = await axios.get(
+        `http://localhost:4000/recipes/${query}`
+      );
+      setRecipes(response.data.hits);
+    };
+
     getRecipes();
   }, [query]);
-
-  const getRecipes = async () => {
-    const response = await axios.get(`http://localhost:4000/recipes/${query}`);
-    console.log(response.data.hits);
-    setRecipes(response.data.hits);
-  };
 
   const updateSearch = (e) => {
     setSearch(e.target.value);

@@ -42,11 +42,3 @@ export function getSuggestedNutrientIntake(userParams) {
 
   return result;
 }
-
-const test = calculateSuggestedCalories({
-  weight: 69,
-  height: 175,
-  sex: "male",
-  age: 30,
-});
-console.log(test);

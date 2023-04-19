@@ -19,7 +19,6 @@ function Records() {
 
     try {
       const response = await axios.get(url, { withCredentials: true });
-      console.log(response.data.user);
       setUserData(response.data.user);
     } catch (error) {
       console.error("Error: " + error.message);

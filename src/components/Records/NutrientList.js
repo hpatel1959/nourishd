@@ -43,7 +43,6 @@ function NutrientList(props) {
 
     try {
       const response = await axios.get(url, { withCredentials: true });
-      // console.log(response.data.day);
       if (response.data.day) {
         setCalories(response.data.day.calories);
         setFat(response.data.day.fat);

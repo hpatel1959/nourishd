@@ -35,8 +35,6 @@ function RecipeListItem(props) {
         withCredentials: true,
       });
 
-      console.log(requestData);
-
       if (response.data.success) {
         console.log("Success");
       } else {
