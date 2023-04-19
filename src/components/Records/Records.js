@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserInfo from "./UserInfo";
 import NutrientList from "./NutrientList";
+import MealHistoryList from "./MealHistoryList";
 
 function Records() {
   const [userData, setUserData] = useState({});
@@ -26,7 +27,6 @@ function Records() {
 
   return (
     <div>
-      <h1>Records</h1>
       {userData ? (
         <>
           <h3>User Details</h3>
@@ -34,6 +34,7 @@ function Records() {
           <h3>Daily Intakes</h3>
           <NutrientList userData={userData} />
           <button onClick={() => navigate("/recipes")}>Add Meal</button>
+          <MealHistoryList />
         </>
       ) : (
         <p>Please log in</p>

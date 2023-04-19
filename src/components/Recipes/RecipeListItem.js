@@ -5,6 +5,12 @@ function RecipeListItem(props) {
   const addToMeal = async function () {
     const url = "http://localhost:4000/updateDayInfo";
 
+    const extractIdFromUri = function (uri) {
+      return uri.split("#recipe_").pop();
+    };
+
+    const extractedId = extractIdFromUri(props.uri);
+
     const requestData = {
       day: {
         calories: props.caloriesPerServing,
@@ -20,6 +26,7 @@ function RecipeListItem(props) {
         calcium: props.calciumPerServing,
         iron: props.ironPerServing,
         cholesterol: props.cholesterolPerServing,
+        history: { [props.label]: extractedId },
       },
     };
 
@@ -48,8 +55,13 @@ function RecipeListItem(props) {
         ))}
       </ul>
       <p>Serving Size: {props.yield}</p>
-      <p className="badge bg-warning">{props.calories} calories</p>
-      <button onClick={addToMeal}>Add 1 serving to tracker</button>
+      <p className="badge bg-warning">{props.calories} total calories</p>
+      <p className="badge bg-success">
+        {Math.floor(props.calories / props.yield)} calories per serving
+      </p>
+      <button className="btn btn-outline-primary" onClick={addToMeal}>
+        Add 1 serving to tracker
+      </button>
     </div>
   );
 }
