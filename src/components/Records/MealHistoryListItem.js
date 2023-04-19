@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
-function MealHistoryListItem() {
-  const [mealsArr, setMealsArr] = useState([]);
+function MealHistoryListItem(props) {
+  const { mealsArr, removeMealFromTracker } = props;
 
-  const fetchDayData = async () => {
-    const url = "http://localhost:4000/dayInfo";
+  const arrOfMealItems = mealsArr.map((meal) => {
+    const mealName = meal.recipeName;
+    const mealId = meal.recipeId;
+    return (
+      <div className="meal-item">
+        {mealName}
+        <button
+          onClick={() => removeMealFromTracker(mealName, mealId)}
+          className="btn btn-outline-danger"
+        >
+          Remove from tracker
+        </button>
+      </div>
+    );
+  });
 
-    try {
-      const response = await axios.get(url, { withCredentials: true });
-      if (response.data.day) {
-        const mealHistory = response.data.day.history.map((meal) => {
-          return Object.keys(meal)[0];
-        });
-        setMealsArr(mealHistory);
-      }
-    } catch (error) {
-      console.error("Error: " + error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchDayData();
-  }, []);
-
-  return (
-    <div>
-      <p>{mealsArr}</p>
-    </div>
-  );
+  return <div className="meal-history mb-4">{arrOfMealItems}</div>;
 }
 
 export default MealHistoryListItem;

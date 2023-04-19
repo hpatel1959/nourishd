@@ -42,3 +42,16 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.meal-history {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
