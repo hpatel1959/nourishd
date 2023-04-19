@@ -4,7 +4,7 @@ import MealHistoryListItem from "./MealHistoryListItem";
 function MealHistoryList() {
   return (
     <div>
-      <h3>MealHistoryList</h3>
+      <h3>Meal History</h3>
       <MealHistoryListItem />
     </div>
   );

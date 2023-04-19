@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function MealHistoryListItem() {
@@ -9,18 +9,24 @@ function MealHistoryListItem() {
 
     try {
       const response = await axios.get(url, { withCredentials: true });
-      // console.log(response.data.day);
       if (response.data.day) {
-        console.log(response.data.day);
+        const mealHistory = response.data.day.history.map((meal) => {
+          return Object.keys(meal)[0];
+        });
+        setMealsArr(mealHistory);
       }
     } catch (error) {
       console.error("Error: " + error.message);
     }
   };
+
+  useEffect(() => {
+    fetchDayData();
+  }, []);
+
   return (
     <div>
-      <p>MealHistoryListItem</p>
-      <button onClick={fetchDayData}>Click</button>
+      <p>{mealsArr}</p>
     </div>
   );
 }
