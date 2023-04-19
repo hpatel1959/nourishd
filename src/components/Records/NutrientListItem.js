@@ -28,7 +28,7 @@ function NutrientListItem(props) {
   const remaining = Math.floor(suggestedVal - currentVal);
   const percent = (currentVal / suggestedVal) * 100;
   return (
-    <div className="card mb-2">
+    <div className="card mb-2 nutrient-amount">
       <p>
         <span>
           {lable}({unit}):
