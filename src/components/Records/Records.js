@@ -6,8 +6,13 @@ import NutrientList from "./NutrientList";
 import MealHistoryList from "./MealHistoryList";
 
 function Records() {
+  const [updateKey, setUpdateKey] = useState(0);
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
+
+  const triggerUpdate = () => {
+    setUpdateKey((prevKey) => prevKey + 1);
+  };
 
   const fetchUserData = async () => {
     const url = "http://localhost:4000/userInfo";
@@ -32,9 +37,12 @@ function Records() {
           <h3>User Details</h3>
           <UserInfo userData={userData} />
           <h3>Daily Intakes</h3>
-          <NutrientList userData={userData} />
+          <NutrientList userData={userData} updateKey={updateKey} />
           <button onClick={() => navigate("/recipes")}>Add Meal</button>
-          <MealHistoryList />
+          <MealHistoryList
+            updateKey={updateKey}
+            triggerUpdate={triggerUpdate}
+          />
         </>
       ) : (
         <p>Please log in</p>

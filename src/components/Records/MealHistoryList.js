@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MealHistoryListItem from "./MealHistoryListItem";
 
-function MealHistoryList() {
+function MealHistoryList(props) {
   const [mealsArr, setMealsArr] = useState([]);
+  const { updateKey, triggerUpdate } = props;
   // ------------------------------------------------
   const removeMealFromTracker = async (name, id) => {
     const queryName = name.split(" ").join("-");
@@ -78,6 +79,8 @@ function MealHistoryList() {
       } else {
         console.log("Failed to remove");
       }
+
+      triggerUpdate();
     } catch (error) {
       console.error("Error during login: " + error.message);
     }

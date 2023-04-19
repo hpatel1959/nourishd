@@ -4,7 +4,7 @@ import NutrientListItem from "./NutrientListItem";
 import axios from "axios";
 
 function NutrientList(props) {
-  const { userData } = props;
+  const { userData, updateKey } = props;
 
   const [calories, setCalories] = useState(0);
   const [fat, setFat] = useState(0);
@@ -66,7 +66,7 @@ function NutrientList(props) {
 
   useEffect(() => {
     fetchDayData();
-  }, []);
+  }, [updateKey]);
 
   const SuggestedData = getSuggestedNutrientIntake(userData);
   const arrOfIntakes = Object.entries(dayData).map(([key, value]) => {
