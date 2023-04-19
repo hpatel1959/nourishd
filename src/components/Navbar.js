@@ -13,7 +13,7 @@ function Navbar(props) {
     const response = await axios.get(url, { withCredentials: true });
     try {
       if (response.data.success) {
-        setLogInStatus(false)
+        setLogInStatus(false);
         navigate("/login");
       } else {
         console.log("Login failed: " + response.data.message);
@@ -32,36 +32,46 @@ function Navbar(props) {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/records">
-            Records
-          </NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink className="nav-link" to="/recipes">
             Recipes
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/favourites">
-            Favourites
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/signup">
-            Sign Up
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          {logInStatus ? (
-            <button className="btn btn-link nav-link" onClick={logOut}>
-              Logout
-            </button>
-          ) : (
-            <NavLink className="nav-link" to="/login">
-              Login
-            </NavLink>
-          )}
-        </li>
+
+        {logInStatus ? (
+          <>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/favourites">
+                Favourites
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/records">
+                Records
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <button className="btn btn-link nav-link" onClick={logOut}>
+                Logout
+              </button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <NavLink className="nav-link" to="/login">
+                Login
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/signup">
+                Sign Up
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

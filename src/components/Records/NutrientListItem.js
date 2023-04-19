@@ -31,7 +31,7 @@ function NutrientListItem(props) {
     <div className="card mb-2">
       <p>
         <span>
-          {lable}({unit}) :
+          {lable}({unit}):
         </span>
         <span>
           {currentVal} / {suggestedVal} |
