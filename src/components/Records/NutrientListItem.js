@@ -5,7 +5,7 @@ function NutrientListItem(props) {
   const lable = Object.keys(data)[0];
   const valArr = Object.values(data);
 
-  const currentVal = Math.floor(valArr[0].current * 100) / 100;
+  let currentVal = Math.floor(valArr[0].current * 100) / 100;
   let suggestedVal = valArr[0].suggested;
 
   let unit = "g";
@@ -37,9 +37,9 @@ function NutrientListItem(props) {
           {currentVal} / {suggestedVal} |
         </span>
         {remaining > 0 ? (
-          <span> Remaining {remaining}</span>
+          <span> Remaining: {remaining}</span>
         ) : (
-          <span className="text-danger"> Overdose {remaining}</span>
+          <span className="text-danger"> Remaining: {remaining}</span>
         )}
         <div
           className="progress mx-4"

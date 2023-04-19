@@ -52,7 +52,7 @@ function NutrientList(props) {
         setSugar(response.data.day.sugar);
         setProtein(response.data.day.protein);
         setFiber(response.data.day.fiber);
-        setPotassium(response.data.day.potassium);
+        setPotassium(response.data.day.potassium * 1000);
         setVitaminA(response.data.day.vitamin_a * 1000000);
         setVitaminC(response.data.day.vitamin_c * 1000);
         setCalcium(response.data.day.calcium * 1000);

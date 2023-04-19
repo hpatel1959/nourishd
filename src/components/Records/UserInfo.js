@@ -7,9 +7,15 @@ function UserInfo(props) {
       {userData ? (
         <>
           <p>{userData.username}</p>
-          <p>Age: {userData.age}</p>
-          <p>Height: {userData.height} cm</p>
-          <p>Weight: {userData.weight} kg</p>
+          <p>
+            <strong>Age:</strong> {userData.age}
+          </p>
+          <p>
+            <strong>Height:</strong> {userData.height} cm
+          </p>
+          <p>
+            <strong>Weight:</strong> {userData.weight} kg
+          </p>
         </>
       ) : (
         <p>Please log in</p>
