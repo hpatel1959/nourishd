@@ -38,7 +38,12 @@ function Records() {
           <UserInfo userData={userData} />
           <h3>Daily Intakes</h3>
           <NutrientList userData={userData} updateKey={updateKey} />
-          <button onClick={() => navigate("/recipes")}>Add Meal</button>
+          <button
+            className="btn btn-outline-success"
+            onClick={() => navigate("/recipes")}
+          >
+            Add Meal
+          </button>
           <MealHistoryList triggerUpdate={triggerUpdate} />
         </>
       ) : (

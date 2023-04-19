@@ -25,16 +25,19 @@ function NutrientListItem(props) {
     suggestedVal *= 1000000;
   }
 
+  function capitalizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
   const remaining = Math.floor(suggestedVal - currentVal);
   const percent = (currentVal / suggestedVal) * 100;
+  const capitalizedLabel = capitalizeFirstLetter(lable);
+
   return (
     <div className="card mb-2 nutrient-amount">
       <p>
         <span>
-          {lable}({unit}):
-        </span>
-        <span>
-          {currentVal} / {suggestedVal} |
+          {capitalizedLabel}({unit}): {currentVal} / {suggestedVal} |
         </span>
         {remaining > 0 ? (
           <span> Remaining: {remaining}</span>
