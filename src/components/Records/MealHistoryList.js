@@ -23,20 +23,8 @@ function MealHistoryList(props) {
       console.log("Login failed: " + response.data.message);
     }
 
-    const {
-      FAT,
-      CHOCDF,
-      NA,
-      SUGAR,
-      PROCNT,
-      FIBTG,
-      K,
-      VITA_RAE,
-      VITC,
-      CA,
-      FE,
-      CHOLE,
-    } = response.data.totalNutrients;
+    const { FAT, CHOCDF, NA, SUGAR, PROCNT, FIBTG, K, VITA_RAE, VITC, CA, FE, CHOLE } =
+      response.data.totalNutrients;
     const { calories } = response.data;
     const serving = response.data.yield;
 
@@ -50,9 +38,7 @@ function MealHistoryList(props) {
         protein: -(Math.floor((PROCNT.quantity / serving) * 100) / 100),
         fiber: -(Math.floor((FIBTG.quantity / serving) * 100) / 100),
         potassium: -parseFloat(K.quantity / serving / 1000).toFixed(5),
-        vitamin_a: -parseFloat(VITA_RAE.quantity / serving / 1000000).toFixed(
-          5
-        ),
+        vitamin_a: -parseFloat(VITA_RAE.quantity / serving / 1000000).toFixed(5),
         vitamin_c: -parseFloat(VITC.quantity / serving / 1000).toFixed(5),
         calcium: -parseFloat(CA.quantity / serving / 1000).toFixed(5),
         iron: -parseFloat(FE.quantity / serving / 1000).toFixed(5),
@@ -108,10 +94,7 @@ function MealHistoryList(props) {
   return (
     <div>
       <h3>Meal History</h3>
-      <MealHistoryListItem
-        mealsArr={mealsArr}
-        removeMealFromTracker={removeMealFromTracker}
-      />
+      <MealHistoryListItem mealsArr={mealsArr} removeMealFromTracker={removeMealFromTracker} />
     </div>
   );
 }
