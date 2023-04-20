@@ -40,9 +40,9 @@ function NutrientListItem(props) {
           {capitalizedLabel}({unit}): {currentVal} / {suggestedVal} |
         </span>
         {remaining > 0 ? (
-          <span> Remaining: {remaining}</span>
+          <span> Left: {remaining}</span>
         ) : (
-          <span className="text-danger"> Remaining: {remaining}</span>
+          <span className="text-danger"> Left: {remaining}</span>
         )}
         <div
           className="progress mx-4 mb-2"

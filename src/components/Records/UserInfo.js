@@ -3,7 +3,7 @@ import React from "react";
 function UserInfo(props) {
   const { userData } = props;
   return (
-    <div className="user-info">
+    <div className="user-info my-3">
       {userData ? (
         <>
           <p>{userData.username}</p>
