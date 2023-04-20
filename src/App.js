@@ -45,7 +45,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/records" element={<Records />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/favorites" element={<Favourites />} />
+        <Route path="/favourites" element={<Favourites />} />
         <Route
           path="/signup"
           element={

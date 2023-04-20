@@ -1,9 +1,11 @@
 import React from "react";
+import FavouriteList from "./FavouriteList";
 
 function Favourites() {
   return (
     <div>
-      <h1>Fav</h1>
+      test
+      <FavouriteList />
     </div>
   );
 }
