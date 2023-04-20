@@ -27,7 +27,7 @@ function FavouriteList() {
   }, []);
 
   const FavouriteListItemArr = favouriteRecipes.map((recipe) => {
-    const { diet_labels, health_labels, image, ingredient_lines, name, url, recipe_id } = recipe;
+    const { diet_labels, health_labels, image, ingredient_lines, name, recipe_id } = recipe;
 
     return (
       <FavouriteListItem
