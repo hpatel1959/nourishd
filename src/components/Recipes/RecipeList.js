@@ -56,7 +56,7 @@ function RecipeList(props) {
         withCredentials: true,
       });
 
-      if (responseTwo.data.favourite) {
+      if (responseTwo.data.success) {
         console.log("Success");
       } else {
         console.log("Failed to remove");
