@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function RecipeListItem(props) {
+  const { addToFavourites } = props;
+  const recipeName = props.title;
+  const [extractedRecipeId, setExtractedRecipeId] = useState("");
+
   const addToMeal = async function () {
     const url = "http://localhost:4000/updateDayInfo";
 
@@ -10,6 +14,7 @@ function RecipeListItem(props) {
     };
 
     const extractedId = extractIdFromUri(props.uri);
+    setExtractedRecipeId(extractedId);
 
     const requestData = {
       day: {
@@ -61,6 +66,12 @@ function RecipeListItem(props) {
       </p>
       <button className="btn btn-outline-primary" onClick={addToMeal}>
         Add 1 serving to tracker
+      </button>
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => addToFavourites(recipeName, extractedRecipeId)}
+      >
+        Add to favourites
       </button>
     </div>
   );

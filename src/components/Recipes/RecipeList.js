@@ -1,39 +1,64 @@
 import React from "react";
 import RecipeListItem from "./RecipeListItem";
+import axios from "axios";
 
 function RecipeList(props) {
-  // const RecipeListItemArr = props.recipes.map((recipe) => (
-  //   <RecipeListItem
-  //     key={recipe.recipe.label}
-  //     title={recipe.recipe.label}
-  //     uri={recipe.recipe.uri}
-  //     image={recipe.recipe.image}
-  //     ingredients={recipe.recipe.ingredients}
-  //     calories={Math.floor(recipe.recipe.calories)}
-  //     yield={recipe.recipe.yield}
-  //     caloriesPerServing={recipe.recipe.calories / recipe.recipe.yield}
-  //     fatPerServing={recipe.recipe.totalNutrients.FAT.quantity / recipe.recipe.yield}
-  //     carbohydratesPerServing={recipe.recipe.totalNutrients.CHOCDF.quantity / recipe.recipe.yield}
-  //     sodiumPerServing={parseFloat(
-  //       (recipe.recipe.totalNutrients.NA.quantity / recipe.recipe.yield / 1000).toFixed(5)
-  //     )}
-  //     sugarPerServing={recipe.recipe.totalNutrients.SUGAR.quantity / recipe.recipe.yield}
-  //     proteinPerServing={recipe.recipe.totalNutrients.PROCNT.quantity / recipe.recipe.yield}
-  //     fiberPerServing={recipe.recipe.totalNutrients.FIBTG.quantity / recipe.recipe.yield}
-  //     potassiumPerServing={recipe.recipe.totalNutrients.K.quantity / recipe.recipe.yield / 1000}
-  //     vitaminAPerServing={
-  //       recipe.recipe.totalNutrients.VITA_RAE.quantity / recipe.recipe.yield / 1000000
-  //     }
-  //     vitaminCPerServing={recipe.recipe.totalNutrients.VITC.quantity / recipe.recipe.yield / 1000}
-  //     calciumPerServing={parseFloat(
-  //       (recipe.recipe.totalNutrients.CA.quantity / recipe.recipe.yield / 1000).toFixed(5)
-  //     )}
-  //     ironPerServing={recipe.recipe.totalNutrients.FE.quantity / recipe.recipe.yield / 1000}
-  //     cholesterolPerServing={parseFloat(
-  //       (recipe.recipe.totalNutrients.CHOLE.quantity / recipe.recipe.yield / 1000).toFixed(5)
-  //     )}
-  //   />
-  // ));
+  // const [img, setImg] = useState('');
+  // const [title, setTitle] = useState('');
+  // const [ingredients, setIngredients] = useState([]);
+  // const [dietLabels, setDietLabels] = useState([]);
+  // const [healthLabels, setHealthLabels] = useState([]);
+  // const [directionsUrl, setdirectionsUrl] = useState('');
+
+  const addToFavourites = async (name, id) => {
+    const queryName = name.split(" ").join("-");
+    const axiosUrl = `http://localhost:4000/recipes/${queryName}`;
+    const requestData = {
+      recipe_id: id,
+    };
+
+    const response = await axios.get(axiosUrl, {
+      params: requestData,
+      withCredentials: true,
+    });
+
+    if (response.data) {
+      console.log(response.data);
+    } else {
+      console.log("Login failed: " + response.data.message);
+    }
+
+    const { label, image, url, dietLabels, healthLabels, ingredientLines } = response.data;
+
+    const requestDataTwo = {
+      favourite: {
+        recipe_id: id,
+        name: label,
+        image,
+        url,
+        diet_labels: dietLabels,
+        health_labels: healthLabels,
+        ingredient_lines: ingredientLines,
+      },
+    };
+
+    console.log(requestDataTwo);
+    const urlTwo = "http://localhost:4000/favourites";
+
+    try {
+      const responseTwo = await axios.post(urlTwo, requestDataTwo, {
+        withCredentials: true,
+      });
+
+      if (responseTwo.data.favourite) {
+        console.log("Success");
+      } else {
+        console.log("Failed to remove");
+      }
+    } catch (error) {
+      console.error("Error during login: " + error.message);
+    }
+  };
 
   const RecipeListItemArr = props.recipes.map((recipe) => {
     const {
@@ -95,6 +120,7 @@ function RecipeList(props) {
         calciumPerServing={parseFloat(calciumPerServing.toFixed(5))}
         ironPerServing={ironPerServing}
         cholesterolPerServing={parseFloat(cholesterolPerServing.toFixed(5))}
+        addToFavourites={addToFavourites}
       />
     );
   });
