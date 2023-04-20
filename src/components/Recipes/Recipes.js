@@ -10,10 +10,12 @@ function Recipes() {
 
   useEffect(() => {
     const getRecipes = async () => {
-      const response = await axios.get(
-        `http://localhost:4000/recipes/${query}`
-      );
-      setRecipes(response.data.hits);
+      if (query !== undefined) {
+        const response = await axios.get(
+          `http://localhost:4000/recipes/${query}`
+        );
+        setRecipes(response.data.hits);
+      }
     };
 
     getRecipes();
@@ -43,7 +45,11 @@ function Recipes() {
         </button>
       </form>
       <div>
-        <RecipeList recipes={recipes} />
+        {query !== undefined ? (
+          <RecipeList recipes={recipes} />
+        ) : (
+          <p>Search your meal Now!</p>
+        )}
       </div>
     </div>
   );
