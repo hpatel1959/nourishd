@@ -29,7 +29,7 @@ function RecipeList(props) {
     });
 
     if (response.data) {
-      console.log(response.data);
+      // console.log(response.data);
     } else {
       console.log("Login failed: " + response.data.message);
     }
