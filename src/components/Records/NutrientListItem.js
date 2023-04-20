@@ -35,7 +35,7 @@ function NutrientListItem(props) {
 
   return (
     <div className="card mb-2 nutrient-amount">
-      <p>
+      <div>
         <span>
           {capitalizedLabel}({unit}): {currentVal} / {suggestedVal} |
         </span>
@@ -54,7 +54,7 @@ function NutrientListItem(props) {
         >
           <div className="progress-bar" style={{ width: `${percent}%` }}></div>
         </div>
-      </p>
+      </div>
     </div>
   );
 }

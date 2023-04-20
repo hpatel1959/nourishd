@@ -61,7 +61,7 @@ function MealHistoryList(props) {
       },
     };
 
-    const urlTwo = "http://localhost:4000/updateDayInfo";
+    const urlTwo = "http://localhost:4000/removeDayInfo";
 
     try {
       const responseTwo = await axios.post(urlTwo, requestDataTwo, {
