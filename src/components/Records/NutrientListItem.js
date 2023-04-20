@@ -45,14 +45,14 @@ function NutrientListItem(props) {
           <span className="text-danger"> Remaining: {remaining}</span>
         )}
         <div
-          className="progress mx-4"
+          className="progress mx-4 mb-2"
           role="progressbar"
           aria-label="Basic example"
           aria-valuenow={percent}
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <div className="progress-bar" style={{ width: `${percent}%` }}></div>
+          <div className="progress-bar bg-warning" style={{ width: `${percent}%` }}></div>
         </div>
       </div>
     </div>
@@ -60,22 +60,3 @@ function NutrientListItem(props) {
 }
 
 export default NutrientListItem;
-
-// {
-//     <div>
-//       if (suggestedVal.isInteger) {
-//        <p>
-//         {lable} (g) : {currentVal} / {suggestedVal} | Remaining {remaining}
-//       </p>
-//       } elseif (suggestedVal < 0 && (suggested * 1000).isInteger) {
-//         <p>
-//         {lable} (mg) : {currentVal} / {suggestedVal} | Remaining {remaining}
-//         </p>
-//       } else (suggestedVal < 0 && (suggestedVal * 1000000).isInteger) {
-//         <p>
-//         {lable} (mcg) : {currentVal} / {suggestedVal} | Remaining {remaining}
-//         </p>
-//       }
-
-//     </div>
-// }
