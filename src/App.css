@@ -51,9 +51,15 @@
 
 .meal-item {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 7rem ;
+ 
   
+}
+
+.fa-trash-can{
+  margin: auto 0;
 }
 
 .nutrient-amount{

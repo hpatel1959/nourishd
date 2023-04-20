@@ -92,7 +92,7 @@ function MealHistoryList(props) {
   }, []);
 
   return (
-    <div>
+    <div className="mt-4">
       <h3>Meal History</h3>
       <MealHistoryListItem mealsArr={mealsArr} removeMealFromTracker={removeMealFromTracker} />
     </div>

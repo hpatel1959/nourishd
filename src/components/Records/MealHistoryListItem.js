@@ -8,7 +8,7 @@ function MealHistoryListItem(props) {
     const mealId = meal.recipeId;
     return (
       <div className="meal-item">
-        {mealName}
+        <span>{mealName}</span>
 
         <i
           className="fa-regular fa-trash-can text-danger h5"
