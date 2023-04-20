@@ -10,9 +10,15 @@ function RecipeList(props) {
   // const [healthLabels, setHealthLabels] = useState([]);
   // const [directionsUrl, setdirectionsUrl] = useState('');
 
-  const addToFavourites = async (name, id) => {
+  const addToFavourites = async (name, uri) => {
     const queryName = name.split(" ").join("-");
     const axiosUrl = `http://localhost:4000/recipes/${queryName}`;
+
+    const extractIdFromUri = function (uri) {
+      return uri.split("#recipe_").pop();
+    };
+
+    const id = extractIdFromUri(uri);
     const requestData = {
       recipe_id: id,
     };
