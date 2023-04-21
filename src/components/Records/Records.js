@@ -10,7 +10,7 @@ import useToggle from "../../hooks/useToggle";
 function Records() {
   const [updateKey, setUpdateKey] = useState(0);
   const [userData, setUserData] = useState({});
-  // const [showCustomRecipeForm, setShowCustomRecipeForm] = useState(false);
+
   const [value, toggleValue] = useToggle(false);
 
   const navigate = useNavigate();
@@ -29,10 +29,6 @@ function Records() {
       console.error("Error: " + error.message);
     }
   };
-
-  // const handleCustomMealClick = () => {
-  //   setShowCustomRecipeForm(true);
-  // };
 
   useEffect(() => {
     fetchUserData();

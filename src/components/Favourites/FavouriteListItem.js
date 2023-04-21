@@ -1,7 +1,10 @@
 import React from "react";
 import axios from "axios";
+import useShow from "../../hooks/useShow";
+import Card from "../Card";
 
 function FavouriteListItem(props) {
+  const [value, showValue] = useShow();
   const addToMeal = async function () {
     const queryName = props.title.split(" ").join("-");
     const urlOne = `http://localhost:4000/recipes/${queryName}`;
@@ -69,12 +72,10 @@ function FavouriteListItem(props) {
       },
     };
 
-    const result = await axios.post(urlTwo, requestDataTwo, {
+    await axios.post(urlTwo, requestDataTwo, {
       withCredentials: true,
     });
-    console.log("🚨");
-    console.log(result);
-    console.log("🚨");
+    showValue();
   };
 
   const removeFromFavourites = async (id) => {
@@ -103,6 +104,7 @@ function FavouriteListItem(props) {
 
   return (
     <div className="card col">
+      {value && <Card message="Added Records" className="alert" />}
       <img src={props.image} alt={props.title} />
       <h1>{props.title}</h1>
       <ul>
