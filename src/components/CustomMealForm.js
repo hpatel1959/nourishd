@@ -16,7 +16,6 @@ function CustomMealForm(props) {
 
   const handleAddMealClick = async (event) => {
     event.preventDefault();
-    // setShowCustomRecipeForm(false);
 
     if (mealName.trim() === "") {
       showValue();
