@@ -10,12 +10,12 @@ function FavouriteListItem(props) {
     <div className="card col">
       {value && <Card message="Added Records" className="alert" />}
       <img src={props.image} alt={props.title} />
-      <h1>{props.title}</h1>
-      <ul>
+      <h4>{props.title}</h4>
+      {/* <ul>
         {props.ingredient_lines.map((ingredient) => (
           <li>{ingredient}</li>
         ))}
-      </ul>
+      </ul> */}
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {props.diet_labels.map((dietLabel) => (
           <span className="badge rounded-pill bg-success">{dietLabel}</span>
