@@ -27,12 +27,12 @@ function RecipeListItem(props) {
       {value && <Card message="Added Records" className="alert" />}
       {favouritePopUp && <Card message="Added to Favourites" className="alert" />}
       <img src={props.image} alt={props.title} />
-      <h1>{props.title}</h1>
-      <ul>
+      <h4>{props.title}</h4>
+      {/* <ul>
         {props.ingredients.map((ingredient) => (
           <li>{ingredient.text}</li>
         ))}
-      </ul>
+      </ul> */}
       <p>Serving Size: {props.yield}</p>
       <p className="badge bg-warning">{props.calories} total calories</p>
       <p className="badge bg-success">
