@@ -1,23 +1,41 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import RecipeList from "./RecipeList";
+// import useToggle from "../../hooks/useToggle";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("burger");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showNoRecipes, setShowNoRecipes] = useState(false);
 
   useEffect(() => {
     const getRecipes = async () => {
       if (query !== undefined) {
         const response = await axios.get(`http://localhost:4000/recipes/${query}`);
-        setRecipes(response.data.hits);
+        if (response.data.hits) {
+          // if (value) {
+          //   toggleValue();
+          // }
+          setRecipes(response.data.hits);
+          if (recipes.length === 0) {
+            setShowNoRecipes(true);
+            setErrorMessage(`No recipes found for ${query}`);
+          } else {
+            if (showNoRecipes) {
+              setShowNoRecipes(false);
+            }
+          }
+        } else {
+          // toggleValue();
+          // setErrorMessage(`No recipes found for ${query}`);
+        }
       }
     };
 
     getRecipes();
-  }, [query]);
+  }, [query, recipes.length, showNoRecipes]);
 
   const updateSearch = (e) => {
     const originalWord = e.target.value;
@@ -42,6 +60,11 @@ function Recipes() {
       <div>
         {query !== undefined ? <RecipeList recipes={recipes} /> : <p>Search your meal Now!</p>}
       </div>
+      {showNoRecipes && (
+        <div>
+          <p className="alert alert-danger">{errorMessage}</p>
+        </div>
+      )}
     </div>
   );
 }
