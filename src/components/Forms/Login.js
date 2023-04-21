@@ -27,6 +27,24 @@ function Login(props) {
       password: password,
     };
 
+    if (email.trim() === "" && password.trim() === "") {
+      setShowLoginError(true);
+      setErrorMessage("Email and password cannot be empty");
+      return;
+    }
+
+    if (email.trim() === "") {
+      setShowLoginError(true);
+      setErrorMessage("Email cannot be empty");
+      return;
+    }
+
+    if (password.trim() === "") {
+      setShowLoginError(true);
+      setErrorMessage("Password cannot be empty");
+      return;
+    }
+
     try {
       const response = await axios.post(url, requestData, { withCredentials: true });
 
