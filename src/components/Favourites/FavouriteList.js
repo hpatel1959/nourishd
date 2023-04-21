@@ -1,28 +1,12 @@
 import React, { useEffect, useState } from "react";
 import FavouriteListItem from "./FavouriteListItem";
-import axios from "axios";
+import { fetchFavouriteRecipes } from "../../helpers/favouriteListHelpers";
 
 function FavouriteList() {
   const [favouriteRecipes, setFavouriteRecipes] = useState([]);
 
-  const fetchFavouriteRecipes = async () => {
-    const url = "http://localhost:4000/userFavourites";
-
-    const response = await axios.get(url, {
-      withCredentials: true,
-    });
-
-    if (response.data.success) {
-      // console.log(response.data);
-    } else {
-      // console.log("Failed to fetch data!");
-    }
-
-    setFavouriteRecipes(response.data.recipe);
-  };
-  // console.log(favouriteRecipes);
   useEffect(() => {
-    fetchFavouriteRecipes();
+    fetchFavouriteRecipes(setFavouriteRecipes);
   }, []);
 
   const FavouriteListItemArr = favouriteRecipes.map((recipe) => {

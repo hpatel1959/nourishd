@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getSuggestedNutrientIntake } from "../../helpers/helpers";
+import { getSuggestedNutrientIntake } from "../../helpers/nutrientListHelpers";
 import NutrientListItem from "./NutrientListItem";
 import axios from "axios";
 

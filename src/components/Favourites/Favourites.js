@@ -4,7 +4,6 @@ import FavouriteList from "./FavouriteList";
 function Favourites() {
   return (
     <div>
-      test
       <FavouriteList />
     </div>
   );
