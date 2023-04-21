@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Card from "../Card";
+import useShow from "../../hooks/useShow";
 
 function RecipeListItem(props) {
+  const [value, showValue] = useShow();
+  const [favouritePopUp, setFavouritePopUp] = useState(false);
+
   const { addToFavourites, uri } = props;
   const recipeName = props.title;
+
+  function showAlert() {
+    setFavouritePopUp(true);
+    setTimeout(() => {
+      setFavouritePopUp(false);
+    }, 2000);
+  }
+
+  const addToFavouriteHandler = (recipeName, uri) => {
+    addToFavourites(recipeName, uri);
+    showAlert();
+  };
 
   const addToMeal = async function () {
     const url = "http://localhost:4000/updateDayInfo";
@@ -46,10 +63,13 @@ function RecipeListItem(props) {
     } catch (error) {
       console.error("Error during login: " + error.message);
     }
+    showValue();
   };
 
   return (
     <div className="card col">
+      {value && <Card message="Added Records" className="alert" />}
+      {favouritePopUp && <Card message="Added to Favourites" className="alert" />}
       <img src={props.image} alt={props.title} />
       <h1>{props.title}</h1>
       <ul>
@@ -65,7 +85,10 @@ function RecipeListItem(props) {
       <button className="btn btn-outline-primary" onClick={addToMeal}>
         Add 1 serving to tracker
       </button>
-      <button className="btn btn-outline-primary" onClick={() => addToFavourites(recipeName, uri)}>
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => addToFavouriteHandler(recipeName, uri)}
+      >
         Add to favourites
       </button>
     </div>

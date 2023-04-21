@@ -3,13 +3,6 @@ import RecipeListItem from "./RecipeListItem";
 import axios from "axios";
 
 function RecipeList(props) {
-  // const [img, setImg] = useState('');
-  // const [title, setTitle] = useState('');
-  // const [ingredients, setIngredients] = useState([]);
-  // const [dietLabels, setDietLabels] = useState([]);
-  // const [healthLabels, setHealthLabels] = useState([]);
-  // const [directionsUrl, setdirectionsUrl] = useState('');
-
   const addToFavourites = async (name, uri) => {
     const queryName = name.split(" ").join("-");
     const normalizedQueryName = queryName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");

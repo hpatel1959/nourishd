@@ -1,9 +1,9 @@
 import React from "react";
 
-function Card() {
+function Card(props) {
   return (
-    <div>
-      <h1>this is card</h1>
+    <div className="alert alert-warning position-absolute top-50 start-50 translate-middle opacity-75">
+      <h3>{props.message}</h3>
     </div>
   );
 }
