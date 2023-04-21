@@ -12,7 +12,8 @@ function RecipeList(props) {
 
   const addToFavourites = async (name, uri) => {
     const queryName = name.split(" ").join("-");
-    const axiosUrl = `http://localhost:4000/recipes/${queryName}`;
+    const normalizedQueryName = queryName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const axiosUrl = `http://localhost:4000/recipes/${normalizedQueryName}`;
 
     const extractIdFromUri = function (uri) {
       return uri.split("#recipe_").pop();
