@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { getRecipes } from "../../helpers/recipeHelpers";
 import RecipeList from "./RecipeList";
-// import useToggle from "../../hooks/useToggle";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -11,30 +10,7 @@ function Recipes() {
   const [showNoRecipes, setShowNoRecipes] = useState(false);
 
   useEffect(() => {
-    const getRecipes = async () => {
-      if (query !== undefined) {
-        const response = await axios.get(`http://localhost:4000/recipes/${query}`);
-        if (response.data.hits) {
-          // if (value) {
-          //   toggleValue();
-          // }
-          setRecipes(response.data.hits);
-          if (recipes.length === 0) {
-            setShowNoRecipes(true);
-            setErrorMessage(`No recipes found for ${query}`);
-          } else {
-            if (showNoRecipes) {
-              setShowNoRecipes(false);
-            }
-          }
-        } else {
-          // toggleValue();
-          // setErrorMessage(`No recipes found for ${query}`);
-        }
-      }
-    };
-
-    getRecipes();
+    getRecipes(query, setRecipes, setShowNoRecipes, setErrorMessage, showNoRecipes);
   }, [query, recipes.length, showNoRecipes]);
 
   const updateSearch = (e) => {
