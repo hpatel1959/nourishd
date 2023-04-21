@@ -20,23 +20,25 @@ function FavouriteList() {
 
     setFavouriteRecipes(response.data.recipe);
   };
-
+  // console.log(favouriteRecipes);
   useEffect(() => {
     fetchFavouriteRecipes();
   }, []);
 
   const FavouriteListItemArr = favouriteRecipes.map((recipe) => {
-    const { diet_labels, health_labels, image, ingredient_lines, name, recipe_id } = recipe;
+    const { id, diet_labels, health_labels, image, ingredient_lines, name, recipe_id } = recipe;
 
     return (
       <FavouriteListItem
-        key={recipe_id}
+        key={id}
+        id={id}
         diet_labels={diet_labels}
         health_labels={health_labels}
         image={image}
         title={name}
         ingredient_lines={ingredient_lines}
         recipe_id={recipe_id}
+        setFavouriteRecipes={setFavouriteRecipes}
       />
     );
   });

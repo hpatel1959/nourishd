@@ -77,16 +77,28 @@ function FavouriteListItem(props) {
     console.log("🚨");
   };
 
-  const removeFromFavourites = async (recipeId) => {
-    const url = `http://localhost:4000/favourites/${recipeId}`;
-    const requestData = {
-      recipe_id: recipeId,
-    };
+  const removeFromFavourites = async (id) => {
+    const url = `http://localhost:4000/favourites/${id}`;
 
     await axios
-      .delete(url, requestData, { withCredentials: true })
-      .then((res) => console.log(res.data))
+      .delete(url, { withCredentials: true })
+      .then((res) => {
+        console.log(res.data);
+        fetchFavouriteRecipes();
+      })
       .catch((error) => console.log(error));
+  };
+
+  const fetchFavouriteRecipes = async () => {
+    const url = "http://localhost:4000/userFavourites";
+
+    await axios
+      .get(url, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        props.setFavouriteRecipes(res.data.recipe);
+      });
   };
 
   return (
@@ -116,10 +128,7 @@ function FavouriteListItem(props) {
       <button className="btn btn-outline-primary" onClick={addToMeal}>
         Add 1 serving to tracker
       </button>
-      <button
-        className="btn btn-outline-primary"
-        onClick={() => removeFromFavourites(props.recipe_id)}
-      >
+      <button className="btn btn-outline-primary" onClick={() => removeFromFavourites(props.id)}>
         Remove from favourites
       </button>
     </div>
