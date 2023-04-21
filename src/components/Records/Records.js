@@ -50,7 +50,7 @@ function Records() {
             Add Meal from Recipes
           </button>
           <button className="btn btn-outline-success" onClick={toggleValue}>
-            Add Custom Meal
+            {!value ? "Add Custom Meal" : "Hide"}
           </button>
           {value && (
             <CustomMealForm triggerUpdate={triggerUpdate} setShowCustomRecipeForm={toggleValue} />
