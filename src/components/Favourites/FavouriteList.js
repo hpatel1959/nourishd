@@ -20,7 +20,6 @@ function FavouriteList() {
 
     setFavouriteRecipes(response.data.recipe);
   };
-  console.log(favouriteRecipes);
 
   useEffect(() => {
     fetchFavouriteRecipes();

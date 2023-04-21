@@ -77,6 +77,18 @@ function FavouriteListItem(props) {
     console.log("🚨");
   };
 
+  const removeFromFavourites = async (recipeId) => {
+    const url = `http://localhost:4000/favourites/${recipeId}`;
+    const requestData = {
+      recipe_id: recipeId,
+    };
+
+    await axios
+      .delete(url, requestData, { withCredentials: true })
+      .then((res) => console.log(res.data))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="card col">
       <img src={props.image} alt={props.title} />
@@ -97,17 +109,19 @@ function FavouriteListItem(props) {
           <span className="badge rounded-pill bg-warning">{healthLabel}</span>
         ))}
       </div>
-      {/* <p>Serving Size: {props.yield}</p> */}
-      {/* <p className="badge bg-warning">{props.calories} total calories</p> */}
+
       {/* <p className="badge bg-success">
         {Math.floor(props.calories / props.yield)} calories per serving
       </p> */}
       <button className="btn btn-outline-primary" onClick={addToMeal}>
         Add 1 serving to tracker
       </button>
-      {/* <button className="btn btn-outline-primary" onClick={() => addToFavourites(recipeName, uri)}>
-        Add to favourites
-      </button> */}
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => removeFromFavourites(props.recipe_id)}
+      >
+        Remove from favourites
+      </button>
     </div>
   );
 }
