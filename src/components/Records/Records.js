@@ -5,11 +5,13 @@ import UserInfo from "./UserInfo";
 import NutrientList from "./NutrientList";
 import MealHistoryList from "./MealHistoryList";
 import CustomMealForm from "../CustomMealForm";
+import useToggle from "../../hooks/useToggle";
 
 function Records() {
   const [updateKey, setUpdateKey] = useState(0);
   const [userData, setUserData] = useState({});
-  const [showCustomRecipeForm, setShowCustomRecipeForm] = useState(false);
+  // const [showCustomRecipeForm, setShowCustomRecipeForm] = useState(false);
+  const [value, toggleValue] = useToggle(false);
 
   const navigate = useNavigate();
 
@@ -28,9 +30,9 @@ function Records() {
     }
   };
 
-  const handleCustomMealClick = () => {
-    setShowCustomRecipeForm(true);
-  };
+  // const handleCustomMealClick = () => {
+  //   setShowCustomRecipeForm(true);
+  // };
 
   useEffect(() => {
     fetchUserData();
@@ -47,14 +49,11 @@ function Records() {
           <button className="btn btn-outline-success" onClick={() => navigate("/recipes")}>
             Add Meal from Recipes
           </button>
-          <button className="btn btn-outline-success" onClick={handleCustomMealClick}>
+          <button className="btn btn-outline-success" onClick={toggleValue}>
             Add Custom Meal
           </button>
-          {showCustomRecipeForm && (
-            <CustomMealForm
-              triggerUpdate={triggerUpdate}
-              setShowCustomRecipeForm={setShowCustomRecipeForm}
-            />
+          {value && (
+            <CustomMealForm triggerUpdate={triggerUpdate} setShowCustomRecipeForm={toggleValue} />
           )}
 
           <MealHistoryList updateKey={updateKey} triggerUpdate={triggerUpdate} />
