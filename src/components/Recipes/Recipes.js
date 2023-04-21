@@ -61,7 +61,7 @@ function Recipes() {
         {query !== undefined ? <RecipeList recipes={recipes} /> : <p>Search your meal Now!</p>}
       </div>
       {showNoRecipes && (
-        <div>
+        <div className="no-recipe-message-container">
           <p className="alert alert-danger">{errorMessage}</p>
         </div>
       )}
