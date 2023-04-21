@@ -4,10 +4,13 @@ import axios from "axios";
 import UserInfo from "./UserInfo";
 import NutrientList from "./NutrientList";
 import MealHistoryList from "./MealHistoryList";
+import CustomMealForm from "../CustomMealForm";
 
 function Records() {
   const [updateKey, setUpdateKey] = useState(0);
   const [userData, setUserData] = useState({});
+  const [showCustomRecipeForm, setShowCustomRecipeForm] = useState(false);
+
   const navigate = useNavigate();
 
   const triggerUpdate = () => {
@@ -25,27 +28,37 @@ function Records() {
     }
   };
 
+  const handleCustomMealClick = () => {
+    setShowCustomRecipeForm(true);
+  };
+
   useEffect(() => {
-    fetchUserData(); // Invoke the async function within useEffect
-  }, []);
+    fetchUserData();
+  }, [updateKey]);
 
   return (
     <div>
       {userData ? (
-        <div className="my-4">
-          <div>
-            <h3>User Details</h3>
-            <UserInfo userData={userData} />
-          </div>
-          <div>
-            <h3>Daily Intakes</h3>
-            <NutrientList userData={userData} updateKey={updateKey} />
-          </div>
-          <button className="btn btn-outline-success mt-2" onClick={() => navigate("/recipes")}>
-            Add Meal
+        <>
+          <h3>User Details</h3>
+          <UserInfo userData={userData} />
+          <h3>Daily Intakes</h3>
+          <NutrientList userData={userData} updateKey={updateKey} />
+          <button className="btn btn-outline-success" onClick={() => navigate("/recipes")}>
+            Add Meal from Recipes
           </button>
-          <MealHistoryList triggerUpdate={triggerUpdate} />
-        </div>
+          <button className="btn btn-outline-success" onClick={handleCustomMealClick}>
+            Add Custom Meal
+          </button>
+          {showCustomRecipeForm && (
+            <CustomMealForm
+              triggerUpdate={triggerUpdate}
+              setShowCustomRecipeForm={setShowCustomRecipeForm}
+            />
+          )}
+
+          <MealHistoryList updateKey={updateKey} triggerUpdate={triggerUpdate} />
+        </>
       ) : (
         <p>Please log in</p>
       )}

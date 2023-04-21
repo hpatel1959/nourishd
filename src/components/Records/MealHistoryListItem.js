@@ -10,11 +10,13 @@ function MealHistoryListItem(props) {
       <div className="meal-item">
         <span>{mealName}</span>
 
-        <i
-          className="fa-regular fa-trash-can text-danger h5"
-          role="button"
-          onClick={() => removeMealFromTracker(mealName, mealId)}
-        ></i>
+        {mealId && (
+          <i
+            className="fa-regular fa-trash-can text-danger h5"
+            role="button"
+            onClick={() => removeMealFromTracker(mealName, mealId)}
+          ></i>
+        )}
       </div>
     );
   });

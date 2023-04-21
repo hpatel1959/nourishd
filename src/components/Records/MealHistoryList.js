@@ -4,7 +4,7 @@ import MealHistoryListItem from "./MealHistoryListItem";
 
 function MealHistoryList(props) {
   const [mealsArr, setMealsArr] = useState([]);
-  const { triggerUpdate } = props;
+  const { updateKey, triggerUpdate, customMealsArr } = props;
   // ------------------------------------------------
   const removeMealFromTracker = async (name, id) => {
     const queryName = name.split(" ").join("-");
@@ -89,7 +89,11 @@ function MealHistoryList(props) {
 
   useEffect(() => {
     fetchDayData();
-  }, []);
+  }, [updateKey]);
+
+  useEffect(() => {
+    console.log("Updated customMealsArr in MealHistoryList:", customMealsArr);
+  }, [customMealsArr]);
 
   return (
     <div className="mt-4">
