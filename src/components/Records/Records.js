@@ -1,37 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import UserInfo from "./UserInfo";
 import NutrientList from "./NutrientList";
 import MealHistoryList from "./MealHistoryList";
 import CustomMealForm from "../CustomMealForm";
 import useToggle from "../../hooks/useToggle";
+import { fetchUserData } from "../../helpers/recordsHelper";
 
 function Records() {
   const [updateKey, setUpdateKey] = useState(0);
   const [userData, setUserData] = useState({});
-
   const [value, toggleValue] = useToggle(false);
-
   const navigate = useNavigate();
 
   const triggerUpdate = () => {
     setUpdateKey((prevKey) => prevKey + 1);
   };
 
-  const fetchUserData = async () => {
-    const url = "http://localhost:4000/userInfo";
-
-    try {
-      const response = await axios.get(url, { withCredentials: true });
-      setUserData(response.data.user);
-    } catch (error) {
-      console.error("Error: " + error.message);
-    }
-  };
-
   useEffect(() => {
-    fetchUserData();
+    fetchUserData(setUserData);
   }, [updateKey]);
 
   return (

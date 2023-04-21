@@ -1,7 +1,7 @@
 import React from "react";
 
 function MealHistoryListItem(props) {
-  const { mealsArr, removeMealFromTracker } = props;
+  const { mealsArr, removeMealFromTracker, triggerUpdate, fetchDayData } = props;
 
   const arrOfMealItems = mealsArr.map((meal) => {
     const mealName = meal.recipeName;
@@ -14,7 +14,7 @@ function MealHistoryListItem(props) {
           <i
             className="fa-regular fa-trash-can text-danger h5"
             role="button"
-            onClick={() => removeMealFromTracker(mealName, mealId)}
+            onClick={() => removeMealFromTracker(mealName, mealId, triggerUpdate, fetchDayData)}
           ></i>
         )}
       </div>

@@ -20,7 +20,6 @@ function NutrientList(props) {
   const [iron, setIron] = useState(0);
   const [cholesterol, setCholesterol] = useState(0);
 
-  // ----------------------------------------------------
   const dayData = {
     calories,
     fat,
@@ -36,7 +35,6 @@ function NutrientList(props) {
     iron,
     cholesterol,
   };
-  // ----------------------------------------------------
 
   const fetchDayData = async () => {
     const url = "http://localhost:4000/dayInfo";
