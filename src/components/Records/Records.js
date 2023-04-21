@@ -32,20 +32,16 @@ function Records() {
   return (
     <div>
       {userData ? (
-        <div className="my-4">
-          <div>
-            <h3>User Details</h3>
-            <UserInfo userData={userData} />
-          </div>
-          <div>
-            <h3>Daily Intakes</h3>
-            <NutrientList userData={userData} updateKey={updateKey} />
-          </div>
-          <button className="btn btn-outline-success mt-2" onClick={() => navigate("/recipes")}>
+        <>
+          <h3>User Details</h3>
+          <UserInfo userData={userData} />
+          <h3>Daily Intakes</h3>
+          <NutrientList userData={userData} updateKey={updateKey} />
+          <button className="btn btn-outline-success" onClick={() => navigate("/recipes")}>
             Add Meal
           </button>
           <MealHistoryList triggerUpdate={triggerUpdate} />
-        </div>
+        </>
       ) : (
         <p>Please log in</p>
       )}
