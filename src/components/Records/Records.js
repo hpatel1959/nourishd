@@ -7,6 +7,8 @@ import CustomMealForm from "../CustomMealForm";
 import useToggle from "../../hooks/useToggle";
 import { fetchUserData } from "../../helpers/recordsHelper";
 
+import "./Records.css";
+
 function Records() {
   const [updateKey, setUpdateKey] = useState(0);
   const [userData, setUserData] = useState({});
