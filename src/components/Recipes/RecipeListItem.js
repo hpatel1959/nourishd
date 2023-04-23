@@ -36,36 +36,36 @@ function RecipeListItem(props) {
       {value && <Card message="Added Records" className="alert" />}
       {favouritePopUp && <Card message="Added to Favourites" className="alert" />}
       <img src={props.image} alt={props.title} />
-      <h4>{props.title}</h4>
-      {/* <ul>
-        {props.ingredients.map((ingredient) => (
-          <li>{ingredient.text}</li>
-        ))}
-      </ul> */}
-      <p>Serving Size: {props.yield}</p>
-      <p className="badge bg-warning">{props.calories} total calories</p>
-      <p className="badge bg-success">
-        {Math.floor(props.calories / props.yield)} calories per serving
-      </p>
-      <button className="btn btn-outline-primary" onClick={() => addToMeal(props, showValue)}>
-        Add 1 serving to tracker
-      </button>
-      <button
-        className="btn btn-outline-primary"
-        onClick={() => addToFavouriteHandler(recipeName, uri)}
-      >
-        Add to favourites
-      </button>
-      <button className="btn btn-outline-primary" onClick={() => handleShowIngredientsClick()}>
-        See ingredients
-      </button>
-      {showIngredients && (
+
+      {showIngredients ? (
         <ul>
           {props.ingredients.map((ingredient) => (
             <li>{ingredient.text}</li>
           ))}
         </ul>
+      ) : (
+        <div>
+          <h4>{props.title}</h4>
+          <p>Serving Size: {props.yield}</p>
+          <p className="badge bg-warning">{props.calories} total calories</p>
+          <p className="badge bg-success">
+            {Math.floor(props.calories / props.yield)} calories per serving
+          </p>
+          <button className="btn btn-outline-primary" onClick={() => addToMeal(props, showValue)}>
+            Add 1 serving to tracker
+          </button>
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => addToFavouriteHandler(recipeName, uri)}
+          >
+            Add to favourites
+          </button>
+        </div>
       )}
+
+      <button className="btn btn-outline-primary" onClick={() => handleShowIngredientsClick()}>
+        See ingredients
+      </button>
     </div>
   );
 }
