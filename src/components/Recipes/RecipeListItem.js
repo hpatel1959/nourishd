@@ -6,6 +6,7 @@ import { addToMeal } from "../../helpers/recipeListItemHelpers";
 function RecipeListItem(props) {
   const [value, showValue] = useShow();
   const [favouritePopUp, setFavouritePopUp] = useState(false);
+  const [showIngredients, setShowIngredients] = useState(false);
 
   const { addToFavourites, uri } = props;
   const recipeName = props.title;
@@ -16,6 +17,14 @@ function RecipeListItem(props) {
       setFavouritePopUp(false);
     }, 2000);
   }
+
+  const handleShowIngredientsClick = function () {
+    if (!showIngredients) {
+      setShowIngredients(true);
+    } else {
+      setShowIngredients(false);
+    }
+  };
 
   const addToFavouriteHandler = (recipeName, uri) => {
     addToFavourites(recipeName, uri);
@@ -47,6 +56,16 @@ function RecipeListItem(props) {
       >
         Add to favourites
       </button>
+      <button className="btn btn-outline-primary" onClick={() => handleShowIngredientsClick()}>
+        See ingredients
+      </button>
+      {showIngredients && (
+        <ul>
+          {props.ingredients.map((ingredient) => (
+            <li>{ingredient.text}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
