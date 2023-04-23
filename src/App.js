@@ -12,6 +12,7 @@ import Favourites from "./components/Favourites/Favourites";
 import SignUp from "./components/Forms/SignUp";
 import Login from "./components/Forms/Login";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   const [logInStatus, setLogInStatus] = useState();
@@ -71,6 +72,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
