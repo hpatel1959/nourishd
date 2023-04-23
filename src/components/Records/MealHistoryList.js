@@ -11,8 +11,8 @@ function MealHistoryList(props) {
   }, [updateKey]);
 
   return (
-    <div className="mt-4">
-      <h3>Meal History</h3>
+    <div className="meal-history-list">
+      <h3 className="mb-3">Meal History</h3>
       <MealHistoryListItem
         mealsArr={mealsArr}
         removeMealFromTracker={removeMealFromTracker}

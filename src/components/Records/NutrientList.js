@@ -78,7 +78,7 @@ function NutrientList(props) {
     return <NutrientListItem data={data} />;
   });
 
-  return <div>{arrOfNutrientListItems}</div>;
+  return <div className="nutrient-list-container">{arrOfNutrientListItems}</div>;
 }
 
 export default NutrientList;

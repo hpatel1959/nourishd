@@ -70,49 +70,65 @@ function CustomMealForm(props) {
   };
 
   return (
-    <div className="m-3 card border-0">
+    <div className="custom-meal-form card border-0">
       <form method="POST">
-        <input
-          type="text"
-          name="meal-name"
-          placeholder="Meal name"
-          onChange={handleMealNameChange}
-          required
-        ></input>
-        <input
-          type="number"
-          name="calories"
-          placeholder="Calories"
-          onChange={handleCalorieChange}
-        ></input>
-        <input type="number" name="fat" placeholder="Fat(g)" onChange={handleFatChange}></input>
-        <input
-          type="number"
-          name="carbohydrates"
-          placeholder="Carbohydrates(g)"
-          onChange={handleCarbohydratesChange}
-        ></input>
-        <input
-          type="number"
-          name="sugar"
-          placeholder="Sugar(g)"
-          onChange={handleSugarChange}
-        ></input>
-        <input
-          type="number"
-          name="fiber"
-          placeholder="Fiber(g)"
-          onChange={handleFiberChange}
-        ></input>
-        <input
-          type="number"
-          name="protein"
-          placeholder="Protein(g)"
-          onChange={handleProteinChange}
-        ></input>
-        <button type="submit" onClick={handleAddMealClick}>
-          Add Meal
-        </button>
+        <div className="custom-meal-form-inputs">
+          <input
+            type="text"
+            name="meal-name"
+            placeholder="Meal name"
+            onChange={handleMealNameChange}
+            required
+            className="custom-meal-form-input"
+          ></input>
+          <input
+            type="number"
+            name="calories"
+            placeholder="Calories"
+            onChange={handleCalorieChange}
+            className="custom-meal-form-input"
+          ></input>
+          <input
+            type="number"
+            name="fat"
+            placeholder="Fat(g)"
+            onChange={handleFatChange}
+            className="custom-meal-form-input"
+          ></input>
+          <input
+            type="number"
+            name="carbohydrates"
+            placeholder="Carbohydrates(g)"
+            onChange={handleCarbohydratesChange}
+            className="custom-meal-form-input"
+          ></input>
+          <input
+            type="number"
+            name="sugar"
+            placeholder="Sugar(g)"
+            onChange={handleSugarChange}
+            className="custom-meal-form-input"
+          ></input>
+          <input
+            type="number"
+            name="fiber"
+            placeholder="Fiber(g)"
+            onChange={handleFiberChange}
+            className="custom-meal-form-input"
+          ></input>
+          <input
+            type="number"
+            name="protein"
+            placeholder="Protein(g)"
+            onChange={handleProteinChange}
+            className="custom-meal-form-input"
+          ></input>
+        </div>
+        <div className="custom-meal-form-btn-container">
+          <button type="submit" onClick={handleAddMealClick} className="btn custom-meal-form-btn">
+            <i class="fa-solid fa-plus"></i> <span>Add Meal</span>
+          </button>
+        </div>
       </form>
       {value && <Card message="Meal name cannot be empty" className="alert" />}
     </div>

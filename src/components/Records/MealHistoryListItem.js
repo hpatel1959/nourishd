@@ -7,16 +7,20 @@ function MealHistoryListItem(props) {
     const mealName = meal.recipeName;
     const mealId = meal.recipeId;
     return (
-      <div className="meal-item">
-        <span>{mealName}</span>
+      <div className="meal-history-list-item">
+        <div className="meal-history-list-item-name">
+          <span>{mealName}</span>
+        </div>
 
-        {mealId && (
-          <i
-            className="fa-regular fa-trash-can text-danger h5"
-            role="button"
-            onClick={() => removeMealFromTracker(mealName, mealId, triggerUpdate, fetchDayData)}
-          ></i>
-        )}
+        <div>
+          {mealId && (
+            <i
+              className="fa-regular fa-trash-can text-danger h5 pulse"
+              role="button"
+              onClick={() => removeMealFromTracker(mealName, mealId, triggerUpdate, fetchDayData)}
+            ></i>
+          )}
+        </div>
       </div>
     );
   });

@@ -43,7 +43,7 @@
   align-items: center;
 }
 
-.meal-history {
+/* .meal-history {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -69,4 +69,4 @@
 
 .no-recipe-message-container {
   margin-top: 25px;
-}
+} */

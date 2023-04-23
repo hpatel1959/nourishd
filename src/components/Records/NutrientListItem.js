@@ -34,26 +34,30 @@ function NutrientListItem(props) {
   const capitalizedLabel = capitalizeFirstLetter(lable);
 
   return (
-    <div className="card mb-2 nutrient-amount">
-      <div>
-        <span>
-          {capitalizedLabel}({unit}): {currentVal} / {suggestedVal} |
-        </span>
-        {remaining > 0 ? (
-          <span> Left: {remaining}</span>
-        ) : (
-          <span className="text-danger"> Left: {remaining}</span>
-        )}
-        <div
-          className="progress mx-4 mb-2"
-          role="progressbar"
-          aria-label="Basic example"
-          aria-valuenow={percent}
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-          <div className="progress-bar bg-warning" style={{ width: `${percent}%` }}></div>
+    <div className="nutrient-list-item">
+      <div className="nutrient-list-item-text">
+        <div className="nutrient-list-item-text-label">{capitalizedLabel}</div>
+        <div className="nutrient-list-item-text-param">
+          {remaining > 0 ? (
+            <span>{currentVal}</span>
+          ) : (
+            <span className="param-color">{currentVal}</span>
+          )}
+          <span>
+            {" "}
+            / {suggestedVal} {unit}
+          </span>
         </div>
+      </div>
+      <div
+        className="progress"
+        role="progressbar"
+        aria-label="Basic example"
+        aria-valuenow={percent}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div className="progress-bar bg-warning" style={{ width: `${percent}%` }}></div>
       </div>
     </div>
   );

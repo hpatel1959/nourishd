@@ -24,24 +24,42 @@ function Records() {
   }, [updateKey]);
 
   return (
-    <div>
+    <div className="record">
       {userData ? (
         <>
-          <h3>User Details</h3>
-          <UserInfo userData={userData} />
-          <h3>Daily Intakes</h3>
-          <NutrientList userData={userData} updateKey={updateKey} />
-          <button className="btn btn-outline-success" onClick={() => navigate("/recipes")}>
-            Add Meal from Recipes
-          </button>
-          <button className="btn btn-outline-success" onClick={toggleValue}>
-            {!value ? "Add Custom Meal" : "Hide"}
-          </button>
-          {value && (
-            <CustomMealForm triggerUpdate={triggerUpdate} setShowCustomRecipeForm={toggleValue} />
-          )}
-
-          <MealHistoryList updateKey={updateKey} triggerUpdate={triggerUpdate} />
+          <div className="user">
+            <UserInfo userData={userData} />
+          </div>
+          <div className="nutrient">
+            <h3 className="my-3">Nutrition</h3>
+            <NutrientList userData={userData} updateKey={updateKey} />{" "}
+            <div className="btn-container">
+              <button className="btn add-recipes-btn" onClick={() => navigate("/recipes")}>
+                <i class="fa-solid fa-plus"></i> <span>Add Meals</span>
+              </button>
+              <button className="btn add-custom-mean-btn" onClick={toggleValue}>
+                {!value ? (
+                  <>
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add Custom Meal</span>
+                  </>
+                ) : (
+                  <span>Hide</span>
+                )}
+              </button>
+            </div>
+            <div className="meal-form">
+              {value && (
+                <CustomMealForm
+                  triggerUpdate={triggerUpdate}
+                  setShowCustomRecipeForm={toggleValue}
+                />
+              )}
+            </div>
+          </div>
+          <div className="history">
+            <MealHistoryList updateKey={updateKey} triggerUpdate={triggerUpdate} />
+          </div>
         </>
       ) : (
         <p>Please log in</p>
