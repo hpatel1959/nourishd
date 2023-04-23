@@ -1,0 +1,209 @@
+h4 {
+  font-family: 'Nunito', sans-serif;
+}
+
+p {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Favourites.js */
+
+.favourites {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-form {
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.search-button {
+  border-radius: 0;
+}
+
+/* RecipesList.js */
+
+.recipe-item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* RecipeListItem.js */
+
+.recipe-item-card {
+  width: 80%; 
+  height: 350px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex; 
+  flex-direction: column;
+  position: relative;
+  align-items: center; 
+  justify-content: center;
+}
+
+.recipe-item-img {
+ position: absolute;
+ top: 0;
+ width: 350px;
+ z-index: 1;
+ border-radius: 20px;
+ border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card-info {
+  background-color: rgba(136, 134, 134, 0.5);
+  border-radius: 20px;
+  padding: 8px 16px 8px 16px;
+  display: flex;
+  z-index: 2; 
+  position: absolute;
+  bottom: 10px;
+  width: 333px;
+}
+
+.recipe-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.recipe-title-and-ingredients {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.recipe-title {
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  justify-self: flex-start;
+  text-align: left;
+  line-height: 1;
+
+}
+
+.see-ingredients-button {
+  border: none;
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  justify-self: flex-end;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.see-ingredients-button:hover {
+  color: #F5BB49;
+}
+
+.recipe-calorie-badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.calorie-badge {
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+}
+
+.tracker-and-favourite-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.add-button {
+  color: white;
+  border-color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  gap: 4px;
+}
+
+.add-button:hover{
+  background-color: transparent;
+  border-color: #F5BB49;
+  color: #F5BB49;
+}
+
+.remove-button {
+  color: white;
+  border-color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  gap: 4px;
+}
+
+.remove-button:hover{
+  background-color: transparent;
+  border-color: red;
+  color: red;
+}
+
+.ingredient-list-and-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient-list {
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  width: 301px;
+  height: 255px;
+  border-radius: 20px;
+  overflow: scroll;
+  text-align: left;
+}
+
+.hide-button{
+  color: white;
+  border-color: white;
+}
+
+.hide-button:hover {
+  background-color: transparent;
+  border-color: #F5BB49;
+  color: #F5BB49;
+}
+
+@media screen and (min-width: 768px) and (max-width: 999px) {
+
+  .recipe-item-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+  }
+  
+  .recipe-item-card {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .recipe-item-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px 15px;
+  }
+
+}
+
