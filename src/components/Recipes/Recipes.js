@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getRecipes } from "../../helpers/recipeHelpers";
 import RecipeList from "./RecipeList";
+import "./Recipes.css";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -26,12 +27,22 @@ function Recipes() {
   };
 
   return (
-    <div className="App">
+    <div className="recipes">
       <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={updateSearch} />
-        <button className="search-button" type="submit">
-          Search
-        </button>
+        <div className="input-group mb-3 seach-bar z-2">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search recipes"
+            value={search}
+            onChange={updateSearch}
+          />
+          <div className="input-group-append">
+            <button className="btn btn-outline-secondary search-button" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
       </form>
       <div>
         {query !== undefined ? <RecipeList recipes={recipes} /> : <p>Search your meal Now!</p>}
