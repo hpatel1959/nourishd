@@ -1,7 +1,10 @@
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../img/logo.png";
+<<<<<<< Updated upstream
 import { useState } from "react";
+=======
+>>>>>>> Stashed changes
 
 function Navbar(props) {
   const { logInStatus, setLogInStatus } = props;
@@ -32,6 +35,7 @@ function Navbar(props) {
   };
 
   return (
+<<<<<<< Updated upstream
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid navbar-contents">
         <div className="row align-items-center">
@@ -40,6 +44,21 @@ function Navbar(props) {
               <img src={logo} alt="logo" className="logo" />
             </NavLink>
           </div>
+=======
+    <nav className="navbar navbar-expand bg-warning flex-column">
+      <img src={logo} alt="logo" className="logo" />
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/">
+            Home
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/recipes">
+            Recipes
+          </NavLink>
+        </li>
+>>>>>>> Stashed changes
 
           <div className="col btn-wrapper">
             <button className="navbar-toggler" type="button" onClick={toggle}>
