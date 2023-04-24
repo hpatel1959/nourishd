@@ -22,7 +22,7 @@ function Navbar(props) {
     try {
       if (response.data.success) {
         setLogInStatus(false);
-        navigate("/login");
+        navigate("/");
       } else {
         console.log("Login failed: " + response.data.message);
       }
