@@ -82,6 +82,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 .home-text-wrapper span {
   font-weight: 800;
+  color: coral;
   
 }
 .home-btn{
@@ -94,7 +95,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
   color: #F5BB49;
 }
-
+/* RECORDS */
 .user-info {
   display: flex;
   justify-content: space-evenly;
