@@ -43,30 +43,63 @@
   align-items: center;
 }
 
-/* .meal-history {
+/* NAVBAR */
+.nav-container{
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #F5BB49;
+  /* border: 3px solid #F0F;  */
 }
 
-.meal-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 7rem ;
+.navbar{
+  background-color: #f0ad4e;
+  /* border: 3px solid #F0F;  */
  
   
 }
 
-.fa-trash-can{
-  margin: auto 0;
+
+.logo{
+  width: 160%;
 }
 
-.nutrient-amount{
-  margin-right: 15%;
-  margin-left: 15%;
+.header-img{
+  width: 100%;
 }
 
-.no-recipe-message-container {
-  margin-top: 25px;
-} */
+.btn-wrapper{
+  /* border: 1px solid #f0f; */
+  
+}
+
+.btn-wrapper button{
+  /* border: 1px solid #f0f; */
+  /* justify-content:flex-end; */
+  margin-left: 10rem;
+}
+
+
+
+
+
+@media only screen and (min-width: 1024px) {
+  .navbar-contents {
+   /* border: 1px solid #f0f */
+  
+  }
+
+  .navbar-list-wrapper{
+    /* border: 1px solid #f0f; */
+    width: 60%;
+    margin-right: 5rem;
+  }
+  .navbar-list {
+   /* border: 1px solid #f0f; */
+   display: flex;
+   justify-content: center;
+   margin: 0 auto!important;
+   
+  }
+  
+}
