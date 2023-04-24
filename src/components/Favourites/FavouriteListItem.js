@@ -8,7 +8,7 @@ function FavouriteListItem(props) {
 
   return (
     <div className="favourite-item-card">
-      {value && <Card message="Added Records" className="alert" />}
+      {value && <Card message="Added to Records" className="alert" />}
       <img className="favourite-item-img" src={props.image} alt={props.title} />
       <div className="favourite-card-info">
         <div className="favourite-item-info">
