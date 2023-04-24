@@ -6,7 +6,7 @@ import "./Recipes.css";
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("burger");
+  const [query, setQuery] = useState("apple");
   const [errorMessage, setErrorMessage] = useState("");
   const [showNoRecipes, setShowNoRecipes] = useState(false);
 

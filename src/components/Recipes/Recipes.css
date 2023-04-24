@@ -29,7 +29,7 @@ p {
 .recipe-item-container {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 15px;
 }
 
 /* RecipeListItem.js */

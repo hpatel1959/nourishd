@@ -27,7 +27,7 @@ function FavouriteList() {
     );
   });
 
-  return <div className="recipe-item-container">{FavouriteListItemArr}</div>;
+  return <div className="favourite-item-container">{FavouriteListItemArr}</div>;
 }
 
 export default FavouriteList;

@@ -5,7 +5,6 @@ import "./Favourites.css";
 function Favourites() {
   return (
     <div className="favourites">
-      <h3>Favourites</h3>
       <FavouriteList />
     </div>
   );
