@@ -177,14 +177,14 @@ function Signup(props) {
                 className="form-control"
                 type="number"
                 name="height"
-                placeholder="Height"
+                placeholder="Height(cm)"
                 onChange={handleHeightChange}
               ></input>
               <input
                 className="form-control"
                 type="number"
                 name="weight"
-                placeholder="Weight"
+                placeholder="Weight(kg)"
                 onChange={handleWeightChange}
               ></input>
               <input
