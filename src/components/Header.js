@@ -1,5 +1,4 @@
 import React from "react";
-import headerImg from "../img/home-img.jpg";
 
 function Header() {
   return (
@@ -14,7 +13,7 @@ function Header() {
         </div>
 
         <div className="home-btn-wrapper">
-          <a href="" className="btn home-btn">
+          <a href="/signup" className="btn home-btn">
             Sign Up
           </a>
         </div>

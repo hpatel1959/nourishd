@@ -101,7 +101,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   align-items: center;
 }
 
-<<<<<<< Updated upstream
 /* NAVBAR */
 .nav-container{
   display: flex;
@@ -308,9 +307,3 @@ text-align: center;
 }
   
 }
-=======
-
-.logo{
-  width: 200px;
-}
->>>>>>> Stashed changes
