@@ -5,7 +5,7 @@ function UserInfo(props) {
   const today = new Date();
   const day = today.getDate();
   const month = today.toLocaleString("default", { month: "long" });
-
+  const weekday = today.toLocaleString("default", { weekday: "long" });
   return (
     <div className="user-info my-3">
       {userData ? (
@@ -18,7 +18,7 @@ function UserInfo(props) {
               <strong>
                 <i class="fa-regular fa-calendar"></i>
                 <span>
-                  {day}, {month}
+                  {weekday}, {month} {day}
                 </span>
               </strong>
             </p>
@@ -27,11 +27,11 @@ function UserInfo(props) {
               <strong>Age:</strong> {userData.age}
             </p>
             <p>
-              <i class="fa-solid fa-weight-scale"></i>
+              <i class="fa-solid fa-ruler-vertical"></i>
               <strong>Height:</strong> {userData.height} cm
             </p>
             <p>
-              <i class="fa-solid fa-ruler-vertical"></i>
+              <i class="fa-solid fa-weight-scale"></i>
               <strong>Weight:</strong> {userData.weight} kg
             </p>
           </div>

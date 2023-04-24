@@ -26,7 +26,14 @@ function NutrientListItem(props) {
   }
 
   function capitalizeFirstLetter(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+    if (word.includes("_")) {
+      word = word.split("_").join(" ");
+    }
+    let words = word.split(" ");
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+    }
+    return words.join(" ");
   }
 
   const remaining = Math.floor(suggestedVal - currentVal);
