@@ -134,77 +134,8 @@ function Signup(props) {
   };
 
   return (
-    // <>
-    //   <div>
-    //     <p>Sign Up!</p>
-    //     <form method="POST" onSubmit={handleSubmit}>
-    //       <input
-    //         type="text"
-    //         name="username"
-    //         placeholder="Username"
-    //         onChange={handleUsernameChange}
-    //       ></input>
-    //       <input
-    //         type="text"
-    //         name="email"
-    //         placeholder="Email address"
-    //         onChange={handleEmailChange}
-    //       ></input>
-    //       <input
-    //         type="password"
-    //         name="password"
-    //         placeholder="Password"
-    //         onChange={handlePasswordChange}
-    //       ></input>
-    //       <input
-    //         type="password"
-    //         name="passwordConfirmation"
-    //         placeholder="Confirm password"
-    //         onChange={handlePasswordConfirmationChange}
-    //       ></input>
-    //       <input
-    //         type="number"
-    //         name="height"
-    //         placeholder="Height"
-    //         onChange={handleHeightChange}
-    //       ></input>
-    //       <input
-    //         type="number"
-    //         name="weight"
-    //         placeholder="Weight"
-    //         onChange={handleWeightChange}
-    //       ></input>
-    //       <input type="number" name="age" placeholder="Age" onChange={handleAgeChange}></input>
-    //       <div>
-    //         <input
-    //           type="radio"
-    //           id="male"
-    //           name="sex"
-    //           value="male"
-    //           onChange={handleSexChange}
-    //         ></input>
-    //         <label htmlFor="male">Male</label>
-    //         <input
-    //           type="radio"
-    //           id="female"
-    //           name="sex"
-    //           value="female"
-    //           onChange={handleSexChange}
-    //         ></input>
-    //         <label htmlFor="female">Female</label>
-    //       </div>
-    //       <button type="submit">Sign up</button>
-    //     </form>
-    //   </div>
-    // {showSignUpError && (
-    //   <div className="error-message-container">
-    //     <p className="alert alert-danger">{errorMessage}</p>
-    //   </div>
-    // )}
-    // </>
-
     <>
-      <div className="element-wrapper">
+      <div className="signup-element-wrapper">
         <div className="logo-message-container">
           <img className="signup-logo" src={loginLogo} alt="signup-logo" />
           <p className="signup-message">
