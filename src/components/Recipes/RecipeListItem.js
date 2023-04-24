@@ -70,14 +70,14 @@ function RecipeListItem(props) {
                 className="btn btn-outline-primary add-button"
                 onClick={() => addToMeal(props, showValue)}
               >
-                <i class="fa-solid fa-plus"></i>
+                <i className="fa-solid fa-plus"></i>
                 Add to tracker
               </button>
               <button
                 className="btn btn-outline-primary add-button"
                 onClick={() => addToFavouriteHandler(recipeName, uri)}
               >
-                <i class="fa-solid fa-plus"></i>
+                <i className="fa-solid fa-plus"></i>
                 Add to favourites
               </button>
             </div>

@@ -139,7 +139,7 @@ function Signup(props) {
         <div className="logo-message-container">
           <img className="signup-logo" src={loginLogo} alt="signup-logo" />
           <p className="signup-message">
-            Ready to Fuel Your Journey? <strong>Sign Up.</strong>
+            Ready to Fuel Your Journey? <strong>Sign Up</strong>
           </p>
         </div>
         <div className="signup-card">
@@ -156,7 +156,7 @@ function Signup(props) {
                 className="form-control"
                 type="text"
                 name="email"
-                placeholder="Email address"
+                placeholder="Email Address"
                 onChange={handleEmailChange}
               ></input>
               <input
@@ -170,7 +170,7 @@ function Signup(props) {
                 className="form-control"
                 type="password"
                 name="passwordConfirmation"
-                placeholder="Confirm password"
+                placeholder="Confirm Password"
                 onChange={handlePasswordConfirmationChange}
               ></input>
               <input

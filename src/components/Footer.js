@@ -32,16 +32,16 @@ function Footer() {
       <div className="sns-icons p-2 container">
         <ul>
           <li>
-            <i class="fa-brands fa-square-twitter"></i>
+            <i className="fa-brands fa-square-twitter"></i>
           </li>
           <li>
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
           </li>
           <li>
-            <i class="fa-brands fa-square-facebook"></i>
+            <i className="fa-brands fa-square-facebook"></i>
           </li>
           <li>
-            <i class="fa-brands fa-square-instagram"></i>
+            <i className="fa-brands fa-square-instagram"></i>
           </li>
         </ul>
       </div>

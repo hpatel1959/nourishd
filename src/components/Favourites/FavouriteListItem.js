@@ -20,14 +20,14 @@ function FavouriteListItem(props) {
               className="btn btn-outline-primary add-button"
               onClick={() => addToMeal(props, showValue)}
             >
-              <i class="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-plus"></i>
               Add to tracker
             </button>
             <button
               className="btn btn-outline-primary remove-button"
               onClick={() => removeFromFavourites(props.id, props)}
             >
-              <i class="fa-solid fa-minus"></i>
+              <i className="fa-solid fa-minus"></i>
               Remove from favourites
             </button>
           </div>
