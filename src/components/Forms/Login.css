@@ -94,3 +94,11 @@ p {
   border-color: #F5BB49;
   color: #F5BB49;
 }
+
+@media screen and (max-width: 768px) {
+  .element-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
