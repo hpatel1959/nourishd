@@ -68,7 +68,7 @@ function RecipeList(props) {
     );
   });
 
-  return <div className="row row-cols-1 row-cols-md-3 g-4">{RecipeListItemArr}</div>;
+  return <div className="recipe-item-container">{RecipeListItemArr}</div>;
 }
 
 export default RecipeList;

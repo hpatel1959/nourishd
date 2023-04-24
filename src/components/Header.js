@@ -4,7 +4,7 @@ import headerImg from "../img/header.jpg";
 function Header() {
   return (
     <div>
-      <img src={headerImg} alt="header" />
+      <img src={headerImg} alt="header" className="header-img" />
     </div>
   );
 }
