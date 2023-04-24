@@ -27,7 +27,7 @@ function FavouriteList() {
     );
   });
 
-  return <div className="row row-cols-1 row-cols-md-3 g-4">{FavouriteListItemArr}</div>;
+  return <div className="favourite-item-container">{FavouriteListItemArr}</div>;
 }
 
 export default FavouriteList;
