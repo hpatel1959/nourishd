@@ -51,13 +51,13 @@ function Navbar(props) {
         <div className={`collapse navbar-collapse ${isOpen && "show"} navbar-list-wrapper`}>
           <ul className="navbar-nav ms-auto navbar-list">
             <li className="nav-item">
-              <NavLink className="nav-link" exact activeClassName="active" to="/">
+              <NavLink className="nav-link" exact activeClassName="active" to="/" onClick={toggle}>
                 Home
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="active" to="/recipes">
+              <NavLink className="nav-link" activeClassName="active" to="/recipes" onClick={toggle}>
                 Recipes
               </NavLink>
             </li>
@@ -65,13 +65,23 @@ function Navbar(props) {
             {logInStatus ? (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/favourites">
+                  <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/favourites"
+                    onClick={toggle}
+                  >
                     Favourites
                   </NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/records">
+                  <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/records"
+                    onClick={toggle}
+                  >
                     Records
                   </NavLink>
                 </li>
@@ -85,13 +95,23 @@ function Navbar(props) {
             ) : (
               <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/login">
+                  <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/login"
+                    onClick={toggle}
+                  >
                     Login
                   </NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/signup">
+                  <NavLink
+                    className="nav-link"
+                    activeClassName="active"
+                    to="/signup"
+                    onClick={toggle}
+                  >
                     Sign Up
                   </NavLink>
                 </li>
