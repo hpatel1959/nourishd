@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
+import loginLogo from "../../img/login-logo.png";
 import axios from "axios";
 
 function Login(props) {
@@ -65,28 +66,53 @@ function Login(props) {
 
   return (
     <>
-      <div>
-        <p>Log In</p>
-        <form method="POST" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="email"
-            placeholder="Email address"
-            onChange={handleEmailChange}
-          ></input>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handlePasswordChange}
-          ></input>
-          <button type="submit">Login</button>
-          {showLoginError && (
-            <div className="error-message-container">
-              <p className="alert alert-danger">{errorMessage}</p>
+      <div className="element-wrapper">
+        <div className="logo-message-container">
+          <img className="login-logo" src={loginLogo} alt="login-logo" />
+          <p className="login-message">
+            Ready to Fuel Your Journey? <strong>Log In.</strong>
+          </p>
+        </div>
+        <div className="login-card">
+          <form method="POST" onSubmit={handleSubmit}>
+            <div className="form-group input-container">
+              <input
+                className="form-control"
+                type="text"
+                name="email"
+                placeholder="Email address"
+                onChange={handleEmailChange}
+              ></input>
+
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              ></input>
+
+              <button className="btn btn-outline-primary login-button" type="submit">
+                Login
+              </button>
+
+              {showLoginError && (
+                <div className="error-message-container">
+                  <p className="alert alert-danger">{errorMessage}</p>
+                </div>
+              )}
+
+              <p className="forgot-password-message">Forgot Password?</p>
+
+              <button
+                className="btn btn-outline-primary create-account-button"
+                onClick={() => navigate("/signup")}
+              >
+                Create an account
+              </button>
             </div>
-          )}
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

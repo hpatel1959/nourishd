@@ -1,0 +1,96 @@
+p {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+
+.element-wrapper {
+  height: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.logo-message-container {
+  line-height: 30px;
+}
+
+.login-message {
+  font-size: 18px;
+}
+
+.login-logo {
+  width: 400px;
+}
+
+.login-card {
+  background-color: #F5BB49;
+  padding: 15px;
+  padding-top: 25px;
+  /* height: 300px; */
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2)
+}
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.form-control:focus{
+  border-color: navy;
+  box-shadow: 0 0 0 0;
+}
+
+.login-button {
+  color: white;
+  border-color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  gap: 4px;
+  width: 100%;
+}
+
+.login-button:hover{
+  background-color: white;
+  border-color: #F5BB49;
+  color: #F5BB49;
+}
+
+.forgot-password-message {
+  font-size: 14px;
+}
+
+.forgot-password-message:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.create-account-button {
+  color: white;
+  border-color: white;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  gap: 4px;
+  width: 70%;
+}
+
+.create-account-button:hover{
+  background-color: white;
+  border-color: #F5BB49;
+  color: #F5BB49;
+}
