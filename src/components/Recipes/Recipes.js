@@ -3,12 +3,13 @@ import { getRecipes } from "../../helpers/recipeHelpers";
 import RecipeList from "./RecipeList";
 import "./Recipes.css";
 
-function Recipes() {
+function Recipes(props) {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("apple");
   const [errorMessage, setErrorMessage] = useState("");
   const [showNoRecipes, setShowNoRecipes] = useState(false);
+  const { logInStatus } = props;
 
   useEffect(() => {
     getRecipes(query, setRecipes, setShowNoRecipes, setErrorMessage, showNoRecipes);
@@ -45,7 +46,11 @@ function Recipes() {
         </div>
       </form>
       <div>
-        {query !== undefined ? <RecipeList recipes={recipes} /> : <p>Search your meal Now!</p>}
+        {query !== undefined ? (
+          <RecipeList recipes={recipes} logInStatus={logInStatus} />
+        ) : (
+          <p>Search your meal Now!</p>
+        )}
       </div>
       {showNoRecipes && (
         <div className="no-recipe-message-container">

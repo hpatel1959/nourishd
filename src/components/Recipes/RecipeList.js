@@ -3,6 +3,7 @@ import RecipeListItem from "./RecipeListItem";
 import { addToFavourites } from "../../helpers/recipeListHelpers";
 
 function RecipeList(props) {
+  const { logInStatus } = props;
   const RecipeListItemArr = props.recipes.map((recipe) => {
     const {
       label,
@@ -64,6 +65,7 @@ function RecipeList(props) {
         ironPerServing={ironPerServing}
         cholesterolPerServing={parseFloat(cholesterolPerServing.toFixed(5))}
         addToFavourites={addToFavourites}
+        logInStatus={logInStatus}
       />
     );
   });

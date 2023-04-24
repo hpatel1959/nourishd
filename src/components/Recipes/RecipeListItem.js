@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "../Card";
 import useShow from "../../hooks/useShow";
 import { addToMeal } from "../../helpers/recipeListItemHelpers";
@@ -7,8 +8,8 @@ function RecipeListItem(props) {
   const [value, showValue] = useShow();
   const [favouritePopUp, setFavouritePopUp] = useState(false);
   const [showIngredients, setShowIngredients] = useState(false);
-
-  const { addToFavourites, uri } = props;
+  const navigate = useNavigate();
+  const { addToFavourites, uri, logInStatus } = props;
   const recipeName = props.title;
 
   function showAlert() {
@@ -65,22 +66,32 @@ function RecipeListItem(props) {
                 {Math.floor(props.calories / props.yield)} calories per serving
               </p>
             </div>
-            <div className="tracker-and-favourite-buttons">
+            {logInStatus ? (
+              <div className="tracker-and-favourite-buttons">
+                <button
+                  className="btn btn-outline-primary add-button"
+                  onClick={() => addToMeal(props, showValue)}
+                >
+                  <i className="fa-solid fa-plus"></i>
+                  Add to tracker
+                </button>
+                <button
+                  className="btn btn-outline-primary add-button"
+                  onClick={() => addToFavouriteHandler(recipeName, uri)}
+                >
+                  <i className="fa-solid fa-plus"></i>
+                  Add to favourites
+                </button>
+              </div>
+            ) : (
               <button
                 className="btn btn-outline-primary add-button"
-                onClick={() => addToMeal(props, showValue)}
+                onClick={() => navigate("/login")}
               >
-                <i className="fa-solid fa-plus"></i>
-                Add to tracker
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login to Add or Save Recipe
               </button>
-              <button
-                className="btn btn-outline-primary add-button"
-                onClick={() => addToFavouriteHandler(recipeName, uri)}
-              >
-                <i className="fa-solid fa-plus"></i>
-                Add to favourites
-              </button>
-            </div>
+            )}
           </div>
         )}
       </div>
