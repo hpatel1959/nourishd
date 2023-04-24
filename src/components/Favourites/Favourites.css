@@ -21,6 +21,7 @@ p {
   flex-direction: column;
   gap: 15px;
   margin-top: 25px;
+  margin-bottom: 3rem;
 }
 
 /* RecipeListItem.js */
@@ -120,6 +121,14 @@ p {
   background-color: transparent;
   border-color: red;
   color: red;
+}
+
+.no-favourite-message-container {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) and (max-width: 999px) {

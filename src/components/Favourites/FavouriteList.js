@@ -12,22 +12,40 @@ function FavouriteList() {
   const FavouriteListItemArr = favouriteRecipes.map((recipe) => {
     const { id, diet_labels, health_labels, image, ingredient_lines, name, recipe_id } = recipe;
 
-    return (
-      <FavouriteListItem
-        key={id}
-        id={id}
-        diet_labels={diet_labels}
-        health_labels={health_labels}
-        image={image}
-        title={name}
-        ingredient_lines={ingredient_lines}
-        recipe_id={recipe_id}
-        setFavouriteRecipes={setFavouriteRecipes}
-      />
-    );
+    if (recipe) {
+      return (
+        <FavouriteListItem
+          key={id}
+          id={id}
+          diet_labels={diet_labels}
+          health_labels={health_labels}
+          image={image}
+          title={name}
+          ingredient_lines={ingredient_lines}
+          recipe_id={recipe_id}
+          setFavouriteRecipes={setFavouriteRecipes}
+        />
+      );
+    } else {
+      return null;
+    }
   });
 
-  return <div className="favourite-item-container">{FavouriteListItemArr}</div>;
+  return (
+    <div>
+      {FavouriteListItemArr && FavouriteListItemArr.length > 0 ? (
+        <div className="favourite-item-container">{FavouriteListItemArr}</div>
+      ) : (
+        <div className="no-favourite-message-container">
+          <div className="alert alert-dark">You currently have no favourited recipes.</div>
+          <p>
+            Head over to the <a href="/recipes">recipes</a> tab to add some favourites and then come
+            back to view them!
+          </p>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default FavouriteList;
