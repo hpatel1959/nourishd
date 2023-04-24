@@ -61,7 +61,7 @@
 
 
 .logo{
-  width: 130%;
+  width: 180%;
 }
 
 .header-img{
@@ -123,6 +123,9 @@
 @media only screen and (min-width: 1024px) {
 /* NAVBAR */
 
+.logo{
+  width: 300px;
+}
 
  
 
