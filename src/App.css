@@ -73,7 +73,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   left: 0;
   right: 0;
   margin-bottom: 2rem;
-  /* border: 3px solid #F0F; */
+
 }
 
 .home-text-wrapper {
@@ -107,20 +107,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #F5BB49;
-  /* border: 3px solid #F0F;  */
+  background-color: #f0ad4e;
+ 
 }
 
 .navbar{
   background-color: #f0ad4e;
-  /* border: 3px solid #F0F;  */
+
  
   
 }
 
 
 .logo{
-  width: 180%;
+  width: 40px;
 }
 
 .header-img{
@@ -128,17 +128,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 
 
-
-.btn-wrapper button{
-  /* border: 1px solid #f0f; */
-  /* justify-content:flex-end; */
-  margin-left: 10rem;
+.navbar-contents{
+  position: relative;
+ 
 }
+
+.nav-item-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between!important;
+ 
+}
+
+.logo-wrapper{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1.5rem;
+    
+  }
+
+
+.btn-wrapper {
+ 
+  text-align: right!important;
+
+}
+
 
   /* FOOTER */
 .footer-container{
   /* margin-top: 2rem; */
-  background-color: #F5BB49;
+  background-color: #f0ad4e;
   padding-top: 2rem;
 }
 
@@ -179,7 +199,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   padding-bottom: 2rem;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
 /* HOME */
 .img-container {
   position: relative;
@@ -227,28 +247,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 /* NAVBAR */
 
 .logo{
-  width: 300px;
+  width: 50px;
 }
 
  
 
-  .navbar-list-wrapper{
+.navbar-list-wrapper{
 
-    width: 60%;
-    margin-right: 5rem;
+  width: 60%;
+  margin-right: 5rem;
+}
+.navbar-list {
+
+  display: flex;
+  justify-content: center;
+  margin: 0 auto!important;
+  
   }
-  .navbar-list {
- 
-   display: flex;
-   justify-content: center;
-   margin: 0 auto!important;
-   
+
+  .nav-item-container{
+    /* border: 1px solid #f0f */
+  }
+
+  .nav-item {
+    width: 100px;
+  }
+
+  .logo-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 3rem;
+    
   }
 
   /* FOOTER */
 .footer-container{
   /* margin-top: 2rem; */
-  background-color: #F5BB49;
+  background-color: #f0ad4e;
   padding-top: 2rem;
  
 }

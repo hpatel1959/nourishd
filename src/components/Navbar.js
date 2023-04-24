@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../img/logo.png";
+import logo from "../img/logo-img.jpg";
 import { useState } from "react";
 
 function Navbar(props) {
@@ -34,8 +34,8 @@ function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid navbar-contents">
-        <div className="row align-items-center">
-          <div className="col">
+        <div className="row align-items-center nav-item-container">
+          <div className="col logo-wrapper">
             <NavLink className="navbar-brand" to="/">
               <img src={logo} alt="logo" className="logo" />
             </NavLink>
