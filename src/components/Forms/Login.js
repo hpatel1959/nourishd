@@ -54,7 +54,7 @@ function Login(props) {
           setShowLoginError(false);
         }
         setLogInStatus(true);
-        navigate("/");
+        navigate("/records");
       } else {
         setShowLoginError(true);
         setErrorMessage(response.data.message);
