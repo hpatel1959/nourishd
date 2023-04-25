@@ -79,6 +79,14 @@ p {
   color: #F5BB49;
 }
 
+.login-link {
+  text-decoration: none;
+}
+
+.login-link:hover{
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 768px) {
   .signup-element-wrapper {
     flex-direction: column;

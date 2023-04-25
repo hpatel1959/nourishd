@@ -226,6 +226,12 @@ function Signup(props) {
                   <p className="alert alert-danger">{errorMessage}</p>
                 </div>
               )}
+              <p>
+                Already have an account?{" "}
+                <a className="login-link" href="/login">
+                  Login
+                </a>
+              </p>
             </div>
           </form>
         </div>
