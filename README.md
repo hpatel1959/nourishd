@@ -35,11 +35,18 @@
 
 ## Screenshots
 
-- Home (Desktop)
-  ![Home Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-home-desktop.png)
-- Home (Mobile)
-  ![Home Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-home-mobile.png)
-- Recipes (Mobile)
-  ![Recipes Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-recipes-mobile.png)
-- Records (Mobile)
-  ![Records Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-records-mobile.png)
+### Home (Desktop)
+
+![Home Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-home-desktop.png)
+
+### Home (Mobile)
+
+![Home Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-home-mobile.png)
+
+### Recipes (Mobile)
+
+![Recipes Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-recipes-mobile.png)
+
+### Records (Mobile)
+
+![Records Page](https://github.com/hpatel1959/nourishd/blob/main/docs/nourishd-records-mobile.png)
