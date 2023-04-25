@@ -10,7 +10,9 @@ function NutrientListItem(props) {
 
   let unit = "g";
 
-  if (
+  if (lable === "calories") {
+    unit = "";
+  } else if (
     lable === "vitamin_c" ||
     lable === "potassium" ||
     lable === "calcium" ||
