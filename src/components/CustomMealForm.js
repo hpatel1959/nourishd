@@ -4,7 +4,7 @@ import Card from "./Card";
 import useShow from "../hooks/useShow";
 
 function CustomMealForm(props) {
-  const { triggerUpdate } = props;
+  const { triggerUpdate, setShowCustomRecipeForm } = props;
   const [mealName, setMealName] = useState("");
   const [calories, setCalories] = useState("");
   const [fat, setFat] = useState("");
@@ -37,7 +37,7 @@ function CustomMealForm(props) {
     };
 
     await axios.post(url, requestData, { withCredentials: true });
-
+    setShowCustomRecipeForm();
     triggerUpdate();
   };
 
