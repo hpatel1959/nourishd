@@ -82,7 +82,7 @@ function Navbar(props) {
                     to="/records"
                     onClick={toggle}
                   >
-                    Records
+                    Tracker
                   </NavLink>
                 </li>
 
