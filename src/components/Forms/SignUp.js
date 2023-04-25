@@ -124,7 +124,7 @@ function Signup(props) {
 
       if (response.data.success) {
         setLogInStatus(true);
-        navigate("/");
+        navigate("/records");
       } else {
         console.log("Login failed: " + response.data.message);
       }
