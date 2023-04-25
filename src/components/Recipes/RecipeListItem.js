@@ -44,6 +44,9 @@ function RecipeListItem(props) {
               {props.ingredients.map((ingredient) => (
                 <li>{ingredient.text}</li>
               ))}
+              <a href={props.url} className="recipe-link">
+                → See full cooking instructions{" "}
+              </a>
             </ul>
 
             <button

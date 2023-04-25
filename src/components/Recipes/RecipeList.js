@@ -8,6 +8,7 @@ function RecipeList(props) {
     const {
       label,
       uri,
+      url,
       image,
       ingredients,
       calories,
@@ -46,6 +47,7 @@ function RecipeList(props) {
       <RecipeListItem
         key={label}
         title={label}
+        url={url}
         uri={uri}
         image={image}
         ingredients={ingredients}
