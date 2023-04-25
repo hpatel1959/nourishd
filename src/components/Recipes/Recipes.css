@@ -75,6 +75,7 @@ p {
 
 .recipe-title-and-ingredients {
   display: flex;
+  justify-content: space-between;
   gap: 7px;
   align-items: center;
 }
