@@ -35,7 +35,7 @@ function Records() {
             <NutrientList userData={userData} updateKey={updateKey} />{" "}
             <div className="btn-container">
               <button className="btn add-recipes-btn" onClick={() => navigate("/recipes")}>
-                <i class="fa-solid fa-plus"></i> <span>Add Meals</span>
+                <i class="fa-solid fa-plus"></i> <span>Add Meal from Recipes</span>
               </button>
               <button className="btn add-custom-mean-btn" onClick={toggleValue}>
                 {!value ? (
