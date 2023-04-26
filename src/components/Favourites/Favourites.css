@@ -20,17 +20,20 @@ p {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 25px;
-  margin-bottom: 3rem;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* RecipeListItem.js */
 
 .favourite-item-card {
-  width: 80%; 
-  height: 350px;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 350px;
+  height: 450px;
   display: flex; 
   flex-direction: column;
   position: relative;
@@ -39,12 +42,14 @@ p {
 }
 
 .favourite-item-img {
- position: absolute;
- top: 0;
- width: 350px;
- z-index: 1;
- border-radius: 20px;
- border: 2px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .favourite-card-info {
