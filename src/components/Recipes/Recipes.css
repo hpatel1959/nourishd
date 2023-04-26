@@ -179,13 +179,12 @@ p {
 .recipe-link{
   text-decoration: none;
   cursor: pointer;
-  color: white;
+  color: #F5BB49;
 }
 
 .recipe-link:hover{
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
-  color: #F5BB49;
 }
 
 @media screen and (min-width: 768px) and (max-width: 999px) {
