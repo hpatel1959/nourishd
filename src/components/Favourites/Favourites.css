@@ -137,6 +137,14 @@ p {
   justify-content: center;
 }
 
+.no-favourite-message {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.recipes-link {
+  text-decoration: none;
+}
+
 @media screen and (min-width: 768px) and (max-width: 999px) {
 
   .favourite-item-container {

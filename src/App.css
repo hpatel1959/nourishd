@@ -118,6 +118,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
   
 }
 
+.nav-link {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 
 .logo{
   width: 40px;
@@ -165,6 +169,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .footer-container ul{
   list-style: none;
   
+}
+
+.footer-link {
+  color: black;
+  text-decoration: none;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 

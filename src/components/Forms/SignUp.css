@@ -17,6 +17,7 @@ p {
 
 .signup-message {
   font-size: 18px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .signup-logo {
@@ -85,6 +86,10 @@ p {
 
 .login-link:hover{
   text-decoration: underline;
+}
+
+.gender-label{
+  font-family: "Nunito Sans", sans-serif;
 }
 
 @media screen and (max-width: 768px) {

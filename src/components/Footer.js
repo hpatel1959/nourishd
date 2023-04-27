@@ -6,26 +6,50 @@ function Footer() {
       <div className="lists-wrapper">
         <div className="link-list p-2 container">
           <ul>
-            <li>About</li>
-            <li>Developers</li>
-            <li>News</li>
+            <li className="footer-link">About</li>
+            <li className="footer-link">Developers</li>
+            <li className="footer-link">News</li>
           </ul>
         </div>
         <div className="site-map p-2 container">
           {" "}
           <ul>
-            <li>Home</li>
-            <li>Recipes</li>
-            <li>Favourites</li>
-            <li>Records</li>
-            <li>Sign Up</li>
-            <li>Login</li>
+            <li>
+              <a className="footer-link" href="/">
+                Home
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="/recipes">
+                Recipes
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="/favourites">
+                Favourites
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="/records">
+                Records
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="/signup">
+                Sign Up
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="/login">
+                Login
+              </a>
+            </li>
           </ul>
         </div>
         <div className="contact p-2 container">
           <ul>
-            <li>Contact Us</li>
-            <li>Terms</li>
+            <li className="footer-link">Contact Us</li>
+            <li className="footer-link">Terms</li>
           </ul>
         </div>
       </div>
@@ -45,7 +69,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="copyright">&copy; 2023 NourishD</div>
+      <div className="copyright footer-link">&copy; 2023 NourishD</div>
     </div>
   );
 }

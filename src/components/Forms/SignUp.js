@@ -204,7 +204,9 @@ function Signup(props) {
                     value="male"
                     onChange={handleSexChange}
                   ></input>
-                  <label htmlFor="male">Male</label>
+                  <label className="gender-label" htmlFor="male">
+                    Male
+                  </label>
                 </div>
                 <div className="radio-button-and-label">
                   <input
@@ -215,7 +217,9 @@ function Signup(props) {
                     value="female"
                     onChange={handleSexChange}
                   ></input>
-                  <label htmlFor="female">Female</label>
+                  <label className="gender-label" htmlFor="female">
+                    Female
+                  </label>
                 </div>
               </div>
               <button class="btn btn-outline-primary create-account-button" type="submit">

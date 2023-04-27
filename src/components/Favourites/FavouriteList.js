@@ -37,10 +37,15 @@ function FavouriteList() {
         <div className="favourite-item-container">{FavouriteListItemArr}</div>
       ) : (
         <div className="no-favourite-message-container">
-          <div className="alert alert-dark">You currently have no favourited recipes.</div>
-          <p>
-            Head over to the <a href="/recipes">recipes</a> tab to add some favourites and then come
-            back to view them!
+          <div className="alert alert-dark no-favourite-message">
+            You currently have no favourited recipes.
+          </div>
+          <p className="no-favourite-message">
+            Head over to the{" "}
+            <a className="recipes-link" href="/recipes">
+              recipes
+            </a>{" "}
+            tab to add some favourites and then come back to view them!
           </p>
         </div>
       )}

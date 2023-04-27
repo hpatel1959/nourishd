@@ -168,6 +168,7 @@ p {
 .hide-button{
   color: white;
   border-color: white;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .hide-button:hover {
