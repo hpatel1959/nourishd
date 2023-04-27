@@ -2,7 +2,7 @@ import React from "react";
 
 function MealHistoryListItem(props) {
   const { mealsArr, removeMealFromTracker, triggerUpdate, fetchDayData } = props;
-
+  console.log(mealsArr);
   const arrOfMealItems = mealsArr.map((meal) => {
     const mealName = meal.recipeName;
     const mealId = meal.recipeId;
