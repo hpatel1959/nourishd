@@ -38,22 +38,6 @@ function Records() {
   const [iron, setIron] = useState(0);
   const [cholesterol, setCholesterol] = useState(0);
 
-  // const dayData = {
-  //   calories,
-  //   fat,
-  //   carbohydrates,
-  //   sodium,
-  //   sugar,
-  //   protein,
-  //   fiber,
-  //   potassium,
-  //   vitamin_a: vitaminA,
-  //   vitamin_c: vitaminC,
-  //   calcium,
-  //   iron,
-  //   cholesterol,
-  // };
-
   const fetchDayData = async () => {
     const url = "http://localhost:4000/dayInfo";
 
@@ -108,7 +92,6 @@ function Records() {
     ],
   };
 
-  // Check if all values are less than one
   if (fat < 1 && carbohydrates < 1 && sugar < 1 && fiber < 1 && protein < 1) {
     data.datasets = [];
   }
@@ -165,7 +148,11 @@ function Records() {
           </div>
           <div className="history">
             <h3 className="my-3">Macros</h3>
-            <Doughnut data={data} options={options} />
+            {data.datasets.length === 0 ? (
+              <p className="alert alert-dark empty-nutrients-message">No Macros to display</p>
+            ) : (
+              <Doughnut data={data} options={options} />
+            )}
             <MealHistoryList updateKey={updateKey} triggerUpdate={triggerUpdate} />
           </div>
         </>

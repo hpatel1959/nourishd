@@ -13,12 +13,16 @@ function MealHistoryList(props) {
   return (
     <div className="meal-history-list">
       <h3 className="mb-3">Meal History</h3>
-      <MealHistoryListItem
-        mealsArr={mealsArr}
-        removeMealFromTracker={removeMealFromTracker}
-        triggerUpdate={triggerUpdate}
-        fetchDayData={fetchDayData}
-      />
+      {mealsArr.length === 0 ? (
+        <p className="alert alert-dark empty-nutrients-message">No Meals to display</p>
+      ) : (
+        <MealHistoryListItem
+          mealsArr={mealsArr}
+          removeMealFromTracker={removeMealFromTracker}
+          triggerUpdate={triggerUpdate}
+          fetchDayData={fetchDayData}
+        />
+      )}
     </div>
   );
 }
