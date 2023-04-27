@@ -117,16 +117,11 @@ function Records() {
           </div>
           <div className="nutrient">
             <h3 className="my-3">Nutrition</h3>
-            <NutrientList
-              userData={userData}
-              updateKey={updateKey}
-              stateGetters={stateGetters}
-            />{" "}
             <div className="btn-container">
               <button className="btn add-recipes-btn" onClick={() => navigate("/recipes")}>
                 <i class="fa-solid fa-plus"></i> <span>Add Meal from Recipes</span>
               </button>
-              <button className="btn add-custom-mean-btn" onClick={toggleValue}>
+              <button className="btn add-custom-meal-btn" onClick={toggleValue}>
                 {!value ? (
                   <>
                     <i class="fa-solid fa-plus"></i>
@@ -145,6 +140,7 @@ function Records() {
                 />
               )}
             </div>
+            <NutrientList userData={userData} updateKey={updateKey} stateGetters={stateGetters} />{" "}
           </div>
           <div className="history">
             <h3 className="my-3">Macros</h3>

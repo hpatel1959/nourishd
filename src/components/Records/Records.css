@@ -175,13 +175,13 @@ p, span{font-family: 'Nunito Sans', sans-serif;}
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-width: 90%;
+width: 411px;
 margin: 1.2rem auto;
 
 }
 
 
-.add-recipes-btn, .add-custom-mean-btn, .custom-meal-form-btn{
+.add-recipes-btn, .add-custom-meal-btn, .custom-meal-form-btn{
   border: 1px solid black;
   width: 45%;
   font-size: small;
