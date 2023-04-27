@@ -1,19 +1,14 @@
 import axios from "axios";
 
-export async function addToMeal(props, showValue) {
+async function addToMeal(props, showValue) {
   const queryName = props.title.split(" ").join("-");
-  const urlOne = `http://localhost:4000/recipes/${queryName}`;
-
-  const requestDataOne = {
-    recipe_id: props.recipe_id,
-  };
-  const nutrientInfo = await axios(urlOne, {
-    params: requestDataOne,
+  const nutrientInfo = await axios.get(`http://localhost:4000/recipes/${queryName}`, {
+    params: {
+      recipe_id: props.recipe_id,
+    },
     withCredentials: true,
   });
-
-  const urlTwo = "http://localhost:4000/updateDayInfo";
-
+  const { data } = nutrientInfo;
   const {
     label,
     calories,
@@ -32,7 +27,7 @@ export async function addToMeal(props, showValue) {
       FE: { quantity: iron },
       CHOLE: { quantity: cholesterol },
     },
-  } = nutrientInfo.data;
+  } = data;
 
   const caloriesPerServing = calories / serving;
   const fatPerServing = fat / serving;
@@ -48,7 +43,7 @@ export async function addToMeal(props, showValue) {
   const ironPerServing = iron / serving / 1000;
   const cholesterolPerServing = cholesterol / serving / 1000;
 
-  const requestDataTwo = {
+  const requestData = {
     day: {
       calories: caloriesPerServing,
       fat: fatPerServing,
@@ -67,32 +62,29 @@ export async function addToMeal(props, showValue) {
     },
   };
 
-  await axios.post(urlTwo, requestDataTwo, {
-    withCredentials: true,
-  });
+  await axios.post("http://localhost:4000/updateDayInfo", requestData, { withCredentials: true });
   showValue();
 }
 
-export const removeFromFavourites = async (id, props) => {
+async function removeFromFavourites(id, props) {
   const url = `http://localhost:4000/favourites/${id}`;
 
-  await axios
-    .delete(url, { withCredentials: true })
-    .then((res) => {
-      console.log(res.data);
-      fetchFavouriteRecipes(props);
-    })
-    .catch((error) => console.log(error));
-};
+  try {
+    const res = await axios.delete(url, { withCredentials: true });
+    console.log(res.data);
+    await fetchFavouriteRecipes(props);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-const fetchFavouriteRecipes = async (props) => {
-  const url = "http://localhost:4000/userFavourites";
+async function fetchFavouriteRecipes(props) {
+  try {
+    const res = await axios.get("http://localhost:4000/userFavourites", { withCredentials: true });
+    props.setFavouriteRecipes(res.data.recipe);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-  await axios
-    .get(url, {
-      withCredentials: true,
-    })
-    .then((res) => {
-      props.setFavouriteRecipes(res.data.recipe);
-    });
-};
+export { addToMeal, removeFromFavourites, fetchFavouriteRecipes };

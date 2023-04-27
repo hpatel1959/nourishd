@@ -1,17 +1,12 @@
 import axios from "axios";
 
 export async function fetchFavouriteRecipes(setFavouriteRecipes) {
-  const url = "http://localhost:4000/userFavourites";
-
-  const response = await axios.get(url, {
-    withCredentials: true,
-  });
-
-  if (response.data.success) {
-    // console.log(response.data);
-  } else {
-    // console.log("Failed to fetch data!");
+  try {
+    const response = await axios.get("http://localhost:4000/userFavourites", {
+      withCredentials: true,
+    });
+    setFavouriteRecipes(response.data.recipe);
+  } catch (error) {
+    console.log(error);
   }
-
-  setFavouriteRecipes(response.data.recipe);
 }

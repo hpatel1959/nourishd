@@ -28,12 +28,11 @@ export async function addToMeal(props, showValue) {
     },
   };
 
-  await axios
-    .post(url, requestData, {
-      withCredentials: true,
-    })
-    .then((res) => console.log("Success"))
-    .catch((err) => console.log(err));
-
+  try {
+    await axios.post(url, requestData, { withCredentials: true });
+    console.log("Success");
+  } catch (error) {
+    console.log(error);
+  }
   showValue();
 }
